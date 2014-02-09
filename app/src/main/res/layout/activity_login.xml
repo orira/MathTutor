@@ -1,0 +1,83 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.rsd.tutor.activity.LoginActivity"
+    android:background="@drawable/gradient_radial_accent"
+    android:paddingTop="@dimen/margin_default">
+
+    <RelativeLayout
+        style="@style/margins_width_default"
+        android:id="@+id/container_login_authentication"
+        android:layout_height="@dimen/margin_default_x2"
+        android:orientation="horizontal"
+        android:background="@drawable/background_white_corners_round">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@+id/label_authentication"
+            android:layout_marginLeft="@dimen/margin_default" />
+
+        <TextView
+            android:id="@id/label_authentication"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_xlarge"
+            android:textColor="@color/base_color_secondary"
+            android:text="@string/authenticating"
+            android:layout_centerInParent="true" />
+
+    </RelativeLayout>
+
+    <TextView
+        style="@style/margins_width_default"
+        android:id="@+id/title_login"
+        android:text="@string/app_name"
+        android:textSize="@dimen/text_xxxlarge"
+        android:textColor="@color/base_accent"
+        android:gravity="center"
+        android:layout_above="@+id/container_input"
+        android:layout_marginBottom="@dimen/margin_default" />
+
+    <LinearLayout
+        style="@style/margins_width_default"
+        android:id="@id/container_input"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:background="@drawable/background_white_corners_round">
+
+        <com.rsd.tutor.custom.DeleteEditText
+            style="@style/input_login"
+            android:id="@+id/input_user_name"
+            android:hint="@string/hint_username" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_smallest"
+            android:background="@color/base_color"
+            android:layout_marginLeft="@dimen/margin_default_half"
+            android:layout_marginRight="@dimen/margin_default_half" />
+
+        <com.rsd.tutor.custom.DeleteEditText
+            style="@style/input_login"
+            android:id="@+id/input_password"
+            android:hint="@string/hint_password" />
+    </LinearLayout>
+
+
+    <Button
+        style="@style/margins_width_default"
+        android:id="@+id/button_login"
+        android:text="@string/sign_in"
+        android:textSize="@dimen/text_xlarge"
+        android:textColor="@color/base_color"
+        android:background="@drawable/selector_button"
+        android:layout_below="@id/container_input"
+        android:layout_marginTop="@dimen/margin_default"
+        android:enabled="false"
+        android:alpha=".7" />
+
+</RelativeLayout>

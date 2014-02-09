@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="base_color">#e5e5e5</color>
+    <color name="base_color_secondary">#757575</color>
+    <color name="base_accent">#9dce5c</color>
+    <!-- Lizard -->
+    <color name="base_accent_secondary">#5A6351</color>
+</resources>

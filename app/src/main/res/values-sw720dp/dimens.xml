@@ -1,0 +1,9 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="margin_activity_login">350dp</dimen>
+
+    <dimen name="margin_default_x2">128dp</dimen>
+    <dimen name="margin_default_x3">192dp</dimen>
+    <dimen name="margin_default_x4">256dp</dimen>
+
+</resources>
