@@ -1,11 +1,11 @@
 package com.rsd.tutor.activity;
 
 import android.app.Activity;
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -30,10 +30,17 @@ import dagger.ObjectGraph;
 public class LoginActivity extends Activity implements TextWatcherCallBack {
     private static final String TAG = "LoginActivity";
 
-    private float mDefaultAlphaValue;
+    private float mInactiveAlphaValue;
 
-    @Inject @Named(Service.LOGIN_SERVICE_STUB)
+    @Inject
+    @Named(Service.LOGIN_SERVICE_STUB)
     LoginService mLoginService;
+
+    @InjectView(R.id.container_overlay)
+    RelativeLayout mContainerOverlay;
+
+    @InjectView(R.id.container_input)
+    LinearLayout mContainerInput;
 
     @InjectView(R.id.label_authentication)
     TextView mLabelAuthentication;
@@ -75,7 +82,7 @@ public class LoginActivity extends Activity implements TextWatcherCallBack {
     @Override
     public void textLengthChanged() {
         boolean enabled = (mInputUserName.length() > 0 && mInputPassword.length() > 0) ? true : false;
-        float alphaLevel = enabled ? 1f : mDefaultAlphaValue;
+        float alphaLevel = enabled ? 1f : mInactiveAlphaValue;
 
         mButtonLogin.animate().alpha(alphaLevel);
         mButtonLogin.setEnabled(enabled);
@@ -88,7 +95,7 @@ public class LoginActivity extends Activity implements TextWatcherCallBack {
     }
 
     private void initialiseViewProperties() {
-        mDefaultAlphaValue = TypeValueUtil.getFloatValue(R.dimen.alpha_button_disabled, this);
+        mInactiveAlphaValue = TypeValueUtil.getFloatValue(R.dimen.alpha_button_disabled, this);
         mContainerLoginAuthentication.setScaleY(0);
         mTitleLogin.setTypeface(TypefaceUtil.getRobotoBold(this));
     }
@@ -101,13 +108,20 @@ public class LoginActivity extends Activity implements TextWatcherCallBack {
     @OnClick(R.id.button_login)
     public void login() {
         showAutheticationView(true);
-        authenticate();
+        //authenticate();
     }
 
     public void showAutheticationView(boolean display) {
         float scaleValue = display ? 1 : 0;
+        float alphaValue = display ? mInactiveAlphaValue : 1;
+        int backgroundColor = display ? getResources().getColor(R.color.translucent_black) : 0;
+
+        mContainerOverlay.setBackgroundColor(backgroundColor);
+        mContainerInput.animate().alpha(alphaValue);
+        mButtonLogin.animate().alpha(alphaValue);
+        mTitleLogin.animate().alpha(alphaValue);
+        mButtonLogin.setEnabled(!display);
         mContainerLoginAuthentication.animate().scaleY(scaleValue);
-        mButtonLogin.setEnabled(false);
     }
 
     private void authenticate() {
@@ -119,22 +133,23 @@ public class LoginActivity extends Activity implements TextWatcherCallBack {
     }
 
     private void transitionToMainActivity() {
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        Bundle animation = AnimationUtil.getNewNodeAnimation(this);
-        startActivity(intent, animation);
+        final Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        final Bundle animation = AnimationUtil.getNewNodeAnimation(this);
 
-        resetAuthenticationView();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(intent, animation);
+            }
+        }, 10000);
+
+        showAutheticationView(false);
     }
 
     private void showAuthenticationError() {
         mLabelAuthentication.setY(-400);
         mLabelAuthentication.setText(getString(R.string.invalid_credentials));
         mLabelAuthentication.animate().translationY(0);
-        mButtonLogin.setEnabled(true);
-    }
-
-    private void resetAuthenticationView() {
-        mContainerLoginAuthentication.setScaleX(0);
         mButtonLogin.setEnabled(true);
     }
 }

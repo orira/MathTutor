@@ -3,6 +3,10 @@
     <color name="base_color">#e5e5e5</color>
     <color name="base_color_secondary">#757575</color>
     <color name="base_accent">#9dce5c</color>
+
     <!-- Lizard -->
     <color name="base_accent_secondary">#5A6351</color>
+
+
+    <color name="translucent_black">#77000000</color>
 </resources>

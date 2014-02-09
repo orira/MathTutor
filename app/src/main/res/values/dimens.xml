@@ -21,7 +21,7 @@
     <dimen name="text_xxxlarge">52sp</dimen>
 
     <!-- Custom -->
-    <item name="alpha_button_disabled" type="dimen" format="float">0.7</item>
+    <item name="alpha_button_disabled" type="dimen" format="float">0.4</item>
 
 
 </resources>
