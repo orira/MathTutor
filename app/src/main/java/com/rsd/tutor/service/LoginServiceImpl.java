@@ -1,8 +1,11 @@
 package com.rsd.tutor.service;
 
+import javax.inject.Singleton;
+
 /**
  * Created by wadereweti on 9/02/14.
  */
+@Singleton
 public class LoginServiceImpl implements LoginService {
 
     @Override

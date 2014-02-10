@@ -3,7 +3,6 @@ package com.rsd.tutor.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -31,6 +30,7 @@ public class LoginActivity extends Activity implements TextWatcherCallBack {
     private static final String TAG = "LoginActivity";
 
     private float mInactiveAlphaValue;
+    private boolean mInvalidLogin = false;
 
     @Inject
     @Named(Service.LOGIN_SERVICE_STUB)
@@ -71,11 +71,12 @@ public class LoginActivity extends Activity implements TextWatcherCallBack {
         initialiseInputs();
     }
 
-
     @Override
     public void onBackPressed() {
         if (mContainerLoginAuthentication.getScaleX() == 1) {
             showAutheticationView(false);
+        } else {
+            super.onBackPressed();
         }
     }
 
@@ -90,8 +91,7 @@ public class LoginActivity extends Activity implements TextWatcherCallBack {
 
     private void initialiseInjection() {
         ButterKnife.inject(this);
-        ObjectGraph objectGraph = ObjectGraph.create(new ServiceModule());
-        objectGraph.inject(this);
+        ObjectGraph.create(new ServiceModule()).inject(this);
     }
 
     private void initialiseViewProperties() {
@@ -107,12 +107,21 @@ public class LoginActivity extends Activity implements TextWatcherCallBack {
 
     @OnClick(R.id.button_login)
     public void login() {
+        initialiseAuthenticationLabel();
         showAutheticationView(true);
-        //authenticate();
+        authenticate();
+    }
+
+    private void initialiseAuthenticationLabel() {
+        String label = mInvalidLogin ? getString(R.string.invalid_credentials) : getString(R.string.authenticating) ;
+
+        mLabelAuthentication.setY(-100);
+        mLabelAuthentication.setText(label);
+        mLabelAuthentication.animate().translationY(0);
     }
 
     public void showAutheticationView(boolean display) {
-        float scaleValue = display ? 1 : 0;
+        float scaleValue = display || mInvalidLogin ? 1 : 0;
         float alphaValue = display ? mInactiveAlphaValue : 1;
         int backgroundColor = display ? getResources().getColor(R.color.translucent_black) : 0;
 
@@ -135,22 +144,15 @@ public class LoginActivity extends Activity implements TextWatcherCallBack {
     private void transitionToMainActivity() {
         final Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         final Bundle animation = AnimationUtil.getNewNodeAnimation(this);
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(intent, animation);
-            }
-        }, 10000);
-
-        showAutheticationView(false);
+        startActivity(intent, animation);
+        finish();
     }
 
     private void showAuthenticationError() {
-        mLabelAuthentication.setY(-400);
-        mLabelAuthentication.setText(getString(R.string.invalid_credentials));
-        mLabelAuthentication.animate().translationY(0);
-        mButtonLogin.setEnabled(true);
+        mInvalidLogin = true;
+        initialiseAuthenticationLabel();
+        showAutheticationView(false);
+        mInvalidLogin = false;
     }
 }
 

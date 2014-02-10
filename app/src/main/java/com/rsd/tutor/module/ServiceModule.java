@@ -22,7 +22,10 @@ public class ServiceModule {
         return new LoginServiceImpl();
     }*/
 
-    @Provides @Singleton @Named(Service.LOGIN_SERVICE_STUB) LoginService provideLoginServiceStub() {
+    @Provides
+    @Singleton
+    @Named(Service.LOGIN_SERVICE_STUB)
+    LoginService provideLoginServiceStub() {
         return new LoginServiceStub();
     }
 }

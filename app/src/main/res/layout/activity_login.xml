@@ -33,6 +33,7 @@
                 android:textSize="@dimen/text_xlarge"
                 android:textColor="@color/base_color_secondary"
                 android:text="@string/authenticating"
+                android:gravity="center"
                 android:layout_centerInParent="true" />
 
         </RelativeLayout>
