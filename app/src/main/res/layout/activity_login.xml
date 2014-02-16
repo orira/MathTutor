@@ -46,7 +46,11 @@
             android:textColor="@color/base_accent"
             android:gravity="center"
             android:layout_above="@+id/container_input"
-            android:layout_marginBottom="@dimen/margin_default" />
+            android:layout_marginBottom="@dimen/margin_default"
+            android:shadowColor="#000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1" />
 
         <LinearLayout
             style="@style/margins_width_default"
@@ -85,7 +89,7 @@
             android:layout_below="@id/container_input"
             android:layout_marginTop="@dimen/margin_default"
             android:enabled="false"
-            android:alpha=".7" />
+            android:alpha="0.4" />
 
     </RelativeLayout>
 

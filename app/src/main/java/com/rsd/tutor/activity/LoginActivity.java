@@ -78,7 +78,6 @@ public class LoginActivity extends Activity implements TextWatcherCallBack, Auth
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        getActionBar().hide();
         initialiseInjection();
         initialiseViewProperties();
         initialiseInputs();
@@ -168,6 +167,7 @@ public class LoginActivity extends Activity implements TextWatcherCallBack, Auth
     public void login() {
         initialiseAuthenticationLabel();
         showAutheticationView(true);
+        toggleInputAccessability();
         mAuthenticationService.authenticateCredentials(this, mInputUserName.getText().toString(), mInputPassword.getText().toString());
     }
 
@@ -188,8 +188,14 @@ public class LoginActivity extends Activity implements TextWatcherCallBack, Auth
         mContainerInput.animate().alpha(alphaValue);
         mButtonLogin.animate().alpha(alphaValue);
         mTitleLogin.animate().alpha(alphaValue);
-        mButtonLogin.setEnabled(!display);
         mContainerLoginAuthentication.animate().scaleY(scaleValue);
+    }
+
+    private void toggleInputAccessability() {
+        boolean enabled = mInputUserName.isEnabled() ? false : true;
+        mInputUserName.setEnabled(enabled);
+        mInputPassword.setEnabled(enabled);
+        mButtonLogin.setEnabled(enabled);
     }
 
     private void transitionToMainActivity() {
@@ -203,6 +209,7 @@ public class LoginActivity extends Activity implements TextWatcherCallBack, Auth
         mInvalidLogin = true;
         initialiseAuthenticationLabel();
         showAutheticationView(false);
+        toggleInputAccessability();
         mInvalidLogin = false;
     }
 }

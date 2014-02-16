@@ -5,6 +5,8 @@
     <dimen name="margin_default_quarter">4dp</dimen>
     <dimen name="margin_default_half">8dp</dimen>
     <dimen name="margin_default">16dp</dimen>
+    <dimen name="margin_default_x1.5">24dp</dimen>
+    <dimen name="margin_default_x1.75">28dp</dimen>
     <dimen name="margin_default_x2">32dp</dimen>
     <dimen name="margin_default_x3">48dp</dimen>
     <dimen name="margin_default_x4">64dp</dimen>
@@ -23,5 +25,7 @@
     <!-- Custom -->
     <item name="alpha_button_disabled" type="dimen" format="float">0.4</item>
 
+    <!-- Animations -->
+    <item name="scale_factor_click" type="dimen" format="float">0.8</item>
 
 </resources>
