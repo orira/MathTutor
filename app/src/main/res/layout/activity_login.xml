@@ -58,7 +58,8 @@
             <com.rsd.tutor.custom.DeleteEditText
                 style="@style/input_login"
                 android:id="@+id/input_user_name"
-                android:hint="@string/hint_username" />
+                android:hint="@string/hint_username"
+                android:singleLine="true" />
 
             <View
                 android:layout_width="match_parent"
@@ -70,7 +71,8 @@
             <com.rsd.tutor.custom.DeleteEditText
                 style="@style/input_login"
                 android:id="@+id/input_password"
-                android:hint="@string/hint_password" />
+                android:hint="@string/hint_password"
+                android:singleLine="true" />
         </LinearLayout>
 
         <Button

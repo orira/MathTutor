@@ -1,8 +1,8 @@
 package com.rsd.tutor.module;
 
-import com.rsd.tutor.activity.LoginActivity;
 import com.rsd.tutor.service.AuthenticationServiceStub;
 import com.rsd.tutor.service.AuthenticationService;
+import com.rsd.tutor.service.AuthenticationServiceImpl;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -13,19 +13,22 @@ import dagger.Provides;
 /**
  * Created by wadereweti on 9/02/14.
  */
-@Module(
-        injects = LoginActivity.class
-)
-public class ServiceModule {
+/*@Module(
+        injects = AuthenticationServiceImpl.class
+)*/
+public class DaoModule {
 
-    /*@Provides @Singleton @Named(Service.LOGIN_SERVICE_IMPL) AuthenticationService provideLoginServiceImpl() {
+    /*@Provides
+    @Singleton
+    @Named(Service.LOGIN_SERVICE_IMPL)
+    AuthenticationService provideLoginServiceImpl() {
         return new AuthenticationServiceImpl();
-    }*/
+    }
 
     @Provides
     @Singleton
     @Named(Service.LOGIN_SERVICE_STUB)
     AuthenticationService provideLoginServiceStub() {
         return new AuthenticationServiceStub();
-    }
+    }*/
 }

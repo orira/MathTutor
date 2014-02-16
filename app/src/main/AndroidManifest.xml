@@ -18,6 +18,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.MainActivity" />
+
+        <meta-data android:name="AA_DB_NAME" android:value="kaiako.db" />
+        <meta-data android:name="AA_DB_VERSION" android:value="1" />
     </application>
 
 </manifest>

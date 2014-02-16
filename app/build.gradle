@@ -19,10 +19,21 @@ android {
 }
 
 dependencies {
+    // libs dir
     compile fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
-    compile 'com.jakewharton:butterknife:4.0.1'
-    compile 'com.android:volley:1.0'
 
+    // support library
+    compile 'com.android.support:support-v4:19.0.1'
+
+    // Butterknife and Dagger
+    compile 'com.jakewharton:butterknife:4.0.1'
     provided 'com.squareup.dagger:dagger-compiler:1.2.0'
     compile 'com.squareup.dagger:dagger:1.2.0'
+
+    // Volley, Jackson, Volley Extention for Jackson
+    compile 'com.android:volley:1.0'
+    /*compile 'com.spothero.volley:volley-jackson-extension:1.0.1'
+    compile 'com.fasterxml.jackson.core:jackson-core:2.2.3'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.2.3'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.2.3'*/
 }

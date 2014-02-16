@@ -2,7 +2,12 @@ package com.rsd.tutor.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Rect;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.ViewTreeObserver;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -11,12 +16,16 @@ import android.widget.TextView;
 import com.rsd.tutor.R;
 import com.rsd.tutor.custom.DeleteEditText;
 import com.rsd.tutor.custom.TextWatcherCallBack;
+import com.rsd.tutor.dao.AuthenticationDao;
+import com.rsd.tutor.dao.AuthenticationDaoImpl;
 import com.rsd.tutor.module.Service;
 import com.rsd.tutor.module.ServiceModule;
-import com.rsd.tutor.service.LoginService;
+import com.rsd.tutor.service.AuthenticationService;
 import com.rsd.tutor.util.AnimationUtil;
 import com.rsd.tutor.util.TypeValueUtil;
 import com.rsd.tutor.util.TypefaceUtil;
+
+import java.util.logging.Logger;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -26,15 +35,19 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import dagger.ObjectGraph;
 
-public class LoginActivity extends Activity implements TextWatcherCallBack {
+public class LoginActivity extends Activity implements TextWatcherCallBack, AuthenticationRequest {
     private static final String TAG = "LoginActivity";
 
     private float mInactiveAlphaValue;
     private boolean mInvalidLogin = false;
+    private boolean mInputAnimated = false;
 
     @Inject
     @Named(Service.LOGIN_SERVICE_STUB)
-    LoginService mLoginService;
+    AuthenticationService mAuthenticationService;
+
+    @InjectView(R.id.container)
+    RelativeLayout mContainer;
 
     @InjectView(R.id.container_overlay)
     RelativeLayout mContainerOverlay;
@@ -69,6 +82,7 @@ public class LoginActivity extends Activity implements TextWatcherCallBack {
         initialiseInjection();
         initialiseViewProperties();
         initialiseInputs();
+        initialiseKeyboardListener();
     }
 
     @Override
@@ -89,6 +103,15 @@ public class LoginActivity extends Activity implements TextWatcherCallBack {
         mButtonLogin.setEnabled(enabled);
     }
 
+    @Override
+    public void authenticationComplete(boolean authenticated) {
+        if (authenticated) {
+            transitionToMainActivity();
+        } else {
+            showAuthenticationError();
+        }
+    }
+
     private void initialiseInjection() {
         ButterKnife.inject(this);
         ObjectGraph.create(new ServiceModule()).inject(this);
@@ -105,15 +128,51 @@ public class LoginActivity extends Activity implements TextWatcherCallBack {
         mInputPassword.setTextWatcherCallBack(this);
     }
 
+    private void initialiseKeyboardListener() {
+        Log.e(TAG, "initialising listener");
+
+        // hide keyboard first time activity loads
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        mContainer.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                Rect rect = new Rect();
+                mContainer.getWindowVisibleDisplayFrame(rect);
+                int heightDelta = mContainer.getRootView().getHeight() - (rect.bottom - rect.top);
+                Log.e(TAG, "root height is " + mContainer.getRootView().getHeight());
+                Log.e(TAG, "mContainer height is " + mContainer.getHeight());
+                Log.e(TAG, "heightDelta is " + heightDelta);
+
+                int animationHeight = 0;
+                if (heightDelta > 100 && !mInputAnimated) {
+                    animationHeight = -175;
+                } else if (mInputAnimated) {
+                    Log.e(TAG, "no animation returning");
+                    return;
+                }
+
+                //mInputAnimated = !mInputAnimated;
+                animateViewAboveKeyboard(animationHeight);
+            }
+        });
+    }
+
+    private void animateViewAboveKeyboard(int heightDelta) {
+        Log.e(TAG, "animating height to " + heightDelta);
+        mTitleLogin.animate().translationY(heightDelta);
+        mContainerInput.animate().translationY(heightDelta);
+        mButtonLogin.animate().translationY(heightDelta);
+    }
+
     @OnClick(R.id.button_login)
     public void login() {
         initialiseAuthenticationLabel();
         showAutheticationView(true);
-        authenticate();
+        mAuthenticationService.authenticateCredentials(this, mInputUserName.getText().toString(), mInputPassword.getText().toString());
     }
 
     private void initialiseAuthenticationLabel() {
-        String label = mInvalidLogin ? getString(R.string.invalid_credentials) : getString(R.string.authenticating) ;
+        String label = mInvalidLogin ? getString(R.string.invalid_credentials) : getString(R.string.authenticating);
 
         mLabelAuthentication.setY(-100);
         mLabelAuthentication.setText(label);
@@ -131,14 +190,6 @@ public class LoginActivity extends Activity implements TextWatcherCallBack {
         mTitleLogin.animate().alpha(alphaValue);
         mButtonLogin.setEnabled(!display);
         mContainerLoginAuthentication.animate().scaleY(scaleValue);
-    }
-
-    private void authenticate() {
-        if (mLoginService.login(mInputUserName.getText().toString(), mInputPassword.getText().toString())) {
-            transitionToMainActivity();
-        } else {
-            showAuthenticationError();
-        }
     }
 
     private void transitionToMainActivity() {

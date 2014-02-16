@@ -1,8 +1,8 @@
 package com.rsd.tutor;
 
-import android.app.Application;
 import android.text.TextUtils;
 
+import com.activeandroid.app.Application;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyLog;
