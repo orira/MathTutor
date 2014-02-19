@@ -10,11 +10,11 @@ public class AuthenticationDaoImpl implements AuthenticationDao {
     @Override
     public void authenticateLogin(final String username, final String password) {
 
-        /*Request request = new JacksonRequest<WorksheetDTO>(Request.Method.GET,
+        /*Request request = new JacksonRequest<WorksheetDto>(Request.Method.GET,
                 "http://date.jsontest.com",
-                new JacksonRequestListener<WorksheetDTO>() {
+                new JacksonRequestListener<WorksheetDto>() {
                     @Override
-                    public void onResponse(WorksheetDTO dto, int statusCode, VolleyError error) {
+                    public void onResponse(WorksheetDto dto, int statusCode, VolleyError error) {
                         if (dto != null) {
 
                         } else {
@@ -24,7 +24,7 @@ public class AuthenticationDaoImpl implements AuthenticationDao {
 
                     @Override
                     public JavaType getReturnType() {
-                        return SimpleType.construct(WorksheetDTO.class);
+                        return SimpleType.construct(WorksheetDto.class);
                     }
                 });
 

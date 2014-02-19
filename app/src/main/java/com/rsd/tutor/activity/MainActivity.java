@@ -28,7 +28,7 @@ import butterknife.InjectView;
 /**
  * Created by wadereweti on 9/02/14.
  */
-public class MainActivity extends FragmentActivity implements UserInteraction{
+public class MainActivity extends BaseActivity implements UserInteraction{
 
     private static final String TAG = "MainActivity";
 
@@ -45,16 +45,11 @@ public class MainActivity extends FragmentActivity implements UserInteraction{
         setContentView(R.layout.activity_main);
 
         initialiseInjection();
-        initialiseActionBar();
         initialiseViewPager();
     }
 
     private void initialiseInjection() {
         ButterKnife.inject(this);
-    }
-
-    private void initialiseActionBar() {
-        getActionBar().setBackgroundDrawable(getResources().getDrawable(R.color.base_accent));
     }
 
     private void initialiseViewPager() {
