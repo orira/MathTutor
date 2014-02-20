@@ -54,7 +54,6 @@ public class MainActivity extends BaseActivity implements UserInteraction{
 
     private void initialiseViewPager() {
         List<Fragment> fragments = initialiseFragments();
-        final float SCALE_FACTOR  = 0.7f;
 
         mViewPagerMain.setAdapter(new MainViewPagerAdapter(getSupportFragmentManager(), fragments));
         mViewPagerMain.setOffscreenPageLimit(2);

@@ -2,3 +2,15 @@
 /local.properties
 /.idea/workspace.xml
 .DS_Store
+.idea/libraries/butterknife_4_0_1.xml
+.idea/libraries/butterknife_4_0_1.xml
+.idea/libraries/dagger_1_2_0.xml
+.idea/libraries/dagger_compiler_1_2_0.xml
+.idea/libraries/guava_15_0.xml
+.idea/libraries/javawriter_2_3_0.xml
+.idea/libraries/javax_inject_1.xml
+.idea/libraries/support_v4_19_0_1.xml
+.idea/misc.xml
+*.iml
+.idea/libraries/activeandroid.xml
+.idea/libraries/activeandroid_sources.xml

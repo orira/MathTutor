@@ -4,6 +4,7 @@ import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.rsd.tutor.dto.WorksheetDto;
+import com.rsd.tutor.persistence.WorksheetStatus;
 
 import java.util.Date;
 import java.util.List;
@@ -18,7 +19,7 @@ public class Worksheet extends Model{
     public int numberOfQuestions;
 
     @Column(name = "Status")
-    public int status;
+    public WorksheetStatus status;
 
     @Column(name = "duration")
     public Date duration;
@@ -30,7 +31,7 @@ public class Worksheet extends Model{
     public Worksheet(WorksheetDto dto) {
         Worksheet worksheet = new Worksheet();
         worksheet.numberOfQuestions = dto.getNumberOfQuestions();
-        worksheet.status = dto.getStatus().getValue();
+        worksheet.status = dto.getStatus();
         worksheet.duration = dto.getDuration();
     }
 
@@ -38,3 +39,5 @@ public class Worksheet extends Model{
         return getMany(Question.class, "Worksheet");
     }
 }
+
+

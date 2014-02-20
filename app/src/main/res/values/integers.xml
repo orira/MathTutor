@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="margin_view_pager">-500</integer>
+    <integer name="margin_view_pager">-1000</integer>
 
     <!-- Animation Values -->
     <integer name="duration_animation_click">100</integer>
