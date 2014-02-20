@@ -34,12 +34,13 @@ public class FragmentUtil {
 
     public static Class getDestinationActivity(int position) {
         Class clazz;
+
         switch (position) {
             case 0:
-                clazz = WorksheetCompletedActivity.class;
+                clazz = WorksheetAssignedActivity.class;
                 break;
             case 1:
-                clazz = WorksheetAssignedActivity.class;
+                clazz = WorksheetCompletedActivity.class;
                 break;
             case 2:
                 clazz = WorksheetAssessmentActivity.class;
