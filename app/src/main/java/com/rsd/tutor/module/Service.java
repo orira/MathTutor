@@ -6,4 +6,5 @@ package com.rsd.tutor.module;
 public class Service {
     public static final String LOGIN_SERVICE_IMPL = "loginServiceImpl";
     public static final String LOGIN_SERVICE_STUB = "loginServiceStub";
+    public static final String WORKSHEET_STUB = "worksheetServiceStub";
 }

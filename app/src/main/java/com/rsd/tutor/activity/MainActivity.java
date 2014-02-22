@@ -26,10 +26,10 @@ public class MainActivity extends BaseActivity implements UserInteraction{
 
     private static final String TAG = "MainActivity";
 
-    @InjectView(R.id.container)
+    @InjectView(R.id.activity_login_container)
     LinearLayout mContainer;
 
-    @InjectView(R.id.view_pager_main)
+    @InjectView(R.id.activity_main_vp)
     ViewPager mViewPagerMain;
 
     @Override
@@ -41,6 +41,7 @@ public class MainActivity extends BaseActivity implements UserInteraction{
         initialiseInjection();
         initialiseViewPager();
     }
+
 
     @Override
     protected void onStart() {

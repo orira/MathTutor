@@ -3,15 +3,14 @@
     package="com.rsd.tutor" >
 
     <application
+        android:theme="@style/AppTheme"
         android:name=".KaiakoApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:label="@string/app_name">
         <activity
-            android:name=".activity.LoginActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Preview">
+            android:theme="@style/Theme.Preview"
+            android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,9 +18,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.WorksheetAssignedActivity" />
-        <activity android:name=".activity.WorksheetAssessmentActivity" />
-        <activity android:name=".activity.WorksheetCompletedActivity" />
+        <activity
+            android:name=".activity.WorksheetAssignedActivity"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity
+            android:name=".activity.WorksheetAssessmentActivity"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity
+            android:name=".activity.WorksheetCompletedActivity"
+            android:parentActivityName=".activity.MainActivity" />
 
         <meta-data android:name="AA_DB_NAME" android:value="kaiako.db" />
         <meta-data android:name="AA_DB_VERSION" android:value="1" />

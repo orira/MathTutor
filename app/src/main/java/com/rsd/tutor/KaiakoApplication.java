@@ -7,9 +7,6 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.Volley;
-import com.rsd.tutor.module.ServiceModule;
-
-import dagger.ObjectGraph;
 
 /**
  * Created by wadereweti on 9/02/14.

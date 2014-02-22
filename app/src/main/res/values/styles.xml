@@ -2,18 +2,24 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Holo.Light">
-        <!--<item name="android:windowBackground">@drawable/gradient_radial_accent</item>-->
-        <!--<item name="android:actionBarStyle">@style/Theme.Actionbar</item>-->
+        <item name="android:actionBarStyle">@style/Theme.Actionbar</item>
     </style>
 
+    <style name="Theme.Actionbar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/base_green</item>
+        <item name="android:titleTextStyle">@style/Theme.ActionBar.TitleTextStyle</item>
+    </style>
+
+    <style name="Theme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- No Action Bar -->
     <style name="Theme.Preview" parent="@android:style/Theme.Holo.NoActionBar">
         <item name="android:windowBackground">@drawable/background_gradient_radial_green</item>
     </style>
 
-    <style name="Theme.Actionbar" parent="android:Theme.Holo.Light.DarkActionBar">
-        <item name="android:background">@color/base_green</item>
-    </style>
-
+    <!-- Boilerplate Styles -->
     <style name="match_parent">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
@@ -31,10 +37,5 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
-
-
-
-
-
 
 </resources>

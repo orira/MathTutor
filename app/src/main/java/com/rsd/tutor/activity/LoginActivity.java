@@ -1,9 +1,7 @@
 package com.rsd.tutor.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Rect;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ViewTreeObserver;
@@ -16,16 +14,12 @@ import android.widget.TextView;
 import com.rsd.tutor.R;
 import com.rsd.tutor.custom.DeleteEditText;
 import com.rsd.tutor.custom.TextWatcherCallBack;
-import com.rsd.tutor.dao.AuthenticationDao;
-import com.rsd.tutor.dao.AuthenticationDaoImpl;
+import com.rsd.tutor.module.AuthenticationServiceModule;
 import com.rsd.tutor.module.Service;
-import com.rsd.tutor.module.ServiceModule;
 import com.rsd.tutor.service.AuthenticationService;
 import com.rsd.tutor.util.AnimationUtil;
 import com.rsd.tutor.util.TypeValueUtil;
 import com.rsd.tutor.util.TypefaceUtil;
-
-import java.util.logging.Logger;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -46,31 +40,31 @@ public class LoginActivity extends BaseActivity implements TextWatcherCallBack, 
     @Named(Service.LOGIN_SERVICE_STUB)
     AuthenticationService mAuthenticationService;
 
-    @InjectView(R.id.container)
+    @InjectView(R.id.activity_login_container)
     RelativeLayout mContainer;
 
-    @InjectView(R.id.container_overlay)
+    @InjectView(R.id.activity_login_container_overlay)
     RelativeLayout mContainerOverlay;
 
-    @InjectView(R.id.container_input)
+    @InjectView(R.id.activity_login_container_input)
     LinearLayout mContainerInput;
 
-    @InjectView(R.id.label_authentication)
+    @InjectView(R.id.activity_login_tv_authentication)
     TextView mLabelAuthentication;
 
-    @InjectView(R.id.container_login_authentication)
+    @InjectView(R.id.activity_login_container_login_authentication)
     RelativeLayout mContainerLoginAuthentication;
 
-    @InjectView(R.id.title_login)
+    @InjectView(R.id.activity_login_header_title)
     TextView mTitleLogin;
 
-    @InjectView(R.id.input_user_name)
+    @InjectView(R.id.activity_login_et_user_name)
     DeleteEditText mInputUserName;
 
-    @InjectView(R.id.input_password)
+    @InjectView(R.id.activity_login_et_password)
     DeleteEditText mInputPassword;
 
-    @InjectView(R.id.button_login)
+    @InjectView(R.id.activity_login_bt)
     Button mButtonLogin;
 
     @Override
@@ -113,7 +107,7 @@ public class LoginActivity extends BaseActivity implements TextWatcherCallBack, 
 
     private void initialiseInjection() {
         ButterKnife.inject(this);
-        ObjectGraph.create(new ServiceModule()).inject(this);
+        ObjectGraph.create(new AuthenticationServiceModule()).inject(this);
     }
 
     private void initialiseViewProperties() {
@@ -169,7 +163,7 @@ public class LoginActivity extends BaseActivity implements TextWatcherCallBack, 
         mButtonLogin.animate().translationY(heightDelta);
     }
 
-    @OnClick(R.id.button_login)
+    @OnClick(R.id.activity_login_bt)
     public void login() {
         initialiseAuthenticationLabel();
         showAutheticationView(true);

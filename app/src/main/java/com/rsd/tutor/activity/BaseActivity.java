@@ -20,8 +20,8 @@ public class BaseActivity extends FragmentActivity {
     }
 
     private void initialiseActionBar() {
-        if (getActionBar() != null) {
+        /*if (getActionBar() != null) {
             getActionBar().setBackgroundDrawable(getResources().getDrawable(R.color.base_green));
-        }
+        }*/
     }
 }

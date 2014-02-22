@@ -1,19 +1,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
+    android:id="@+id/activity_login_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.rsd.tutor.activity.LoginActivity">
 
     <RelativeLayout
-        android:id="@+id/container_overlay"
+        android:id="@+id/activity_login_container_overlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="@dimen/margin_default">
 
         <RelativeLayout
             style="@style/margins_width_default"
-            android:id="@+id/container_login_authentication"
+            android:id="@+id/activity_login_container_login_authentication"
             android:layout_height="@dimen/margin_default_x2"
             android:orientation="horizontal"
             android:background="@drawable/background_white_corners_round">
@@ -22,11 +22,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_toRightOf="@+id/label_authentication"
+                android:layout_toRightOf="@+id/activity_login_tv_authentication"
                 android:layout_marginLeft="@dimen/margin_default" />
 
             <TextView
-                android:id="@id/label_authentication"
+                android:id="@id/activity_login_tv_authentication"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_xlarge"
@@ -39,12 +39,12 @@
 
         <TextView
             style="@style/margins_width_default"
-            android:id="@+id/title_login"
+            android:id="@+id/activity_login_header_title"
             android:text="@string/app_name"
             android:textSize="@dimen/text_xxxlarge"
             android:textColor="@color/cerise"
             android:gravity="center"
-            android:layout_above="@+id/container_input"
+            android:layout_above="@+id/activity_login_container_input"
             android:layout_marginBottom="@dimen/margin_default"
             android:shadowColor="@color/base_grey_dark"
             android:shadowDx="6"
@@ -53,14 +53,14 @@
 
         <LinearLayout
             style="@style/margins_width_default"
-            android:id="@id/container_input"
+            android:id="@id/activity_login_container_input"
             android:layout_centerInParent="true"
             android:orientation="vertical"
             android:background="@drawable/background_white_corners_round">
 
             <com.rsd.tutor.custom.DeleteEditText
                 style="@style/input_login"
-                android:id="@+id/input_user_name"
+                android:id="@+id/activity_login_et_user_name"
                 android:hint="@string/hint_username" />
 
             <View
@@ -72,18 +72,18 @@
 
             <com.rsd.tutor.custom.DeleteEditText
                 style="@style/input_login"
-                android:id="@+id/input_password"
+                android:id="@+id/activity_login_et_password"
                 android:hint="@string/hint_password" />
         </LinearLayout>
 
         <Button
             style="@style/margins_width_default"
-            android:id="@+id/button_login"
+            android:id="@+id/activity_login_bt"
             android:text="@string/sign_in"
             android:textSize="@dimen/text_xlarge"
             android:textColor="@color/base_grey_dark"
             android:background="@drawable/selector_button_cerise"
-            android:layout_below="@id/container_input"
+            android:layout_below="@id/activity_login_container_input"
             android:layout_marginTop="@dimen/margin_default"
             android:enabled="false"
             android:alpha="0.4"

@@ -16,7 +16,7 @@ import dagger.Provides;
 @Module(
         injects = LoginActivity.class
 )
-public class ServiceModule {
+public class AuthenticationServiceModule {
 
     /*@Provides @Singleton @Named(Service.LOGIN_SERVICE_IMPL) AuthenticationService provideLoginServiceImpl() {
         return new AuthenticationServiceImpl();
