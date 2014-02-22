@@ -35,7 +35,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import dagger.ObjectGraph;
 
-public class LoginActivity extends Activity implements TextWatcherCallBack, AuthenticationRequest {
+public class LoginActivity extends BaseActivity implements TextWatcherCallBack, AuthenticationRequest {
     private static final String TAG = "LoginActivity";
 
     private float mInactiveAlphaValue;
@@ -119,7 +119,7 @@ public class LoginActivity extends Activity implements TextWatcherCallBack, Auth
     private void initialiseViewProperties() {
         mInactiveAlphaValue = TypeValueUtil.getFloatValue(R.dimen.alpha_button_disabled, this);
         mContainerLoginAuthentication.setScaleY(0);
-        mTitleLogin.setTypeface(TypefaceUtil.getRobotoBold(this));
+        mTitleLogin.setTypeface(TypefaceUtil.getThin(this));
     }
 
     private void initialiseInputs() {
@@ -138,26 +138,32 @@ public class LoginActivity extends Activity implements TextWatcherCallBack, Auth
                 Rect rect = new Rect();
                 mContainer.getWindowVisibleDisplayFrame(rect);
                 int heightDelta = mContainer.getRootView().getHeight() - (rect.bottom - rect.top);
-                Log.e(TAG, "root height is " + mContainer.getRootView().getHeight());
-                Log.e(TAG, "mContainer height is " + mContainer.getHeight());
-                Log.e(TAG, "heightDelta is " + heightDelta);
+                if(debug) {
+                    Log.e(TAG, "root height is " + mContainer.getRootView().getHeight());
+                    Log.e(TAG, "mContainer height is " + mContainer.getHeight());
+                    Log.e(TAG, "heightDelta is " + heightDelta);
+                }
 
                 int animationHeight = 0;
                 if (heightDelta > 100 && !mInputAnimated) {
                     animationHeight = -175;
                 } else if (mInputAnimated) {
-                    Log.e(TAG, "no animation returning");
+                    if (debug) {
+                        Log.e(TAG, "no animation returning");
+                    }
                     return;
                 }
 
-                //mInputAnimated = !mInputAnimated;
                 animateViewAboveKeyboard(animationHeight);
             }
         });
     }
 
     private void animateViewAboveKeyboard(int heightDelta) {
-        Log.e(TAG, "animating height to " + heightDelta);
+        if (debug) {
+            Log.e(TAG, "animating height to " + heightDelta);
+        }
+
         mTitleLogin.animate().translationY(heightDelta);
         mContainerInput.animate().translationY(heightDelta);
         mButtonLogin.animate().translationY(heightDelta);
@@ -202,6 +208,8 @@ public class LoginActivity extends Activity implements TextWatcherCallBack, Auth
         final Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         final Bundle animation = AnimationUtil.getNewNodeAnimation(this);
         startActivity(intent, animation);
+
+        // re-enable this once styling finished of login page
         finish();
     }
 

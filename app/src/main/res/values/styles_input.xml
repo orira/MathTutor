@@ -9,9 +9,10 @@
         <item name="android:padding">@dimen/margin_default</item>
         <item name="android:background">@android:color/white</item>
         <item name="android:textSize">@dimen/text_xlarge</item>
-        <item name="android:textColor">@color/base_color_secondary</item>
-        <item name="android:textColorHint">@color/base_color</item>
+        <item name="android:textColor">@color/base_grey_secondary</item>
+        <item name="android:textColorHint">@color/base_grey</item>
         <item name="android:drawableRight">@android:drawable/ic_delete</item>
+        <item name="android:singleLine">true</item>
     </style>
 
 </resources>

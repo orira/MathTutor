@@ -1,6 +1,5 @@
 package com.rsd.tutor.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
@@ -11,6 +10,8 @@ import com.rsd.tutor.R;
  */
 public class BaseActivity extends FragmentActivity {
 
+    protected boolean debug = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +20,8 @@ public class BaseActivity extends FragmentActivity {
     }
 
     private void initialiseActionBar() {
-        getActionBar().setBackgroundDrawable(getResources().getDrawable(R.color.base_accent));
+        if (getActionBar() != null) {
+            getActionBar().setBackgroundDrawable(getResources().getDrawable(R.color.base_green));
+        }
     }
 }

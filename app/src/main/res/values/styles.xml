@@ -2,16 +2,16 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Holo.Light">
-        <item name="android:windowBackground">@drawable/gradient_radial_accent</item>
+        <!--<item name="android:windowBackground">@drawable/gradient_radial_accent</item>-->
         <!--<item name="android:actionBarStyle">@style/Theme.Actionbar</item>-->
     </style>
 
     <style name="Theme.Preview" parent="@android:style/Theme.Holo.NoActionBar">
-        <item name="android:windowBackground">@drawable/gradient_radial_accent</item>
+        <item name="android:windowBackground">@drawable/background_gradient_radial_green</item>
     </style>
 
     <style name="Theme.Actionbar" parent="android:Theme.Holo.Light.DarkActionBar">
-        <item name="android:background">@color/base_accent</item>
+        <item name="android:background">@color/base_green</item>
     </style>
 
     <style name="match_parent">

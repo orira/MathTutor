@@ -5,7 +5,7 @@
     <corners
         android:radius="@dimen/margin_default_quarter" />
     <solid
-        android:color="@color/base_accent" />
+        android:color="@color/base_green" />
     <padding
         android:bottom="@dimen/margin_default"
         android:left="@dimen/margin_default"

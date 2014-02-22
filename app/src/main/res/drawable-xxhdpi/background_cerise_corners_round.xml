@@ -4,14 +4,11 @@
     android:shape="rectangle">
     <corners
         android:radius="@dimen/margin_default_quarter" />
+    <solid
+        android:color="@color/cerise" />
     <padding
         android:bottom="@dimen/margin_default"
         android:left="@dimen/margin_default"
         android:right="@dimen/margin_default"
         android:top="@dimen/margin_default" />
-    <gradient
-        android:startColor="@color/base_green"
-        android:endColor="@color/base_green_lizard"
-        android:type="linear"
-        android:angle="270" />
 </shape>

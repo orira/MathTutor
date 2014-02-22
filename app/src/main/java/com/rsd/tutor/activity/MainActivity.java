@@ -3,21 +3,15 @@ package com.rsd.tutor.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
-import android.view.View;
-import android.view.animation.OvershootInterpolator;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import com.rsd.tutor.R;
 import com.rsd.tutor.adapter.MainViewPagerAdapter;
 import com.rsd.tutor.fragment.CoverFlowFragment;
-import com.rsd.tutor.fragment.FragmentName;
 import com.rsd.tutor.fragment.FragmentUtil;
 import com.rsd.tutor.fragment.transformer.ZoomPageTransformer;
-import com.rsd.tutor.util.AnimationUtil;
+import com.rsd.tutor.widget.SpanBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +42,17 @@ public class MainActivity extends BaseActivity implements UserInteraction{
         initialiseViewPager();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        animateActionBarTitle();
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
     private void initialiseInjection() {
         ButterKnife.inject(this);
     }
@@ -69,6 +74,10 @@ public class MainActivity extends BaseActivity implements UserInteraction{
         }
 
         return fragments;
+    }
+
+    private void animateActionBarTitle() {
+        new SpanBuilder(this).runFireworksAnimation();
     }
 
     @Override

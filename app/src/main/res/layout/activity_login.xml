@@ -3,8 +3,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.rsd.tutor.activity.LoginActivity"
-    android:background="@drawable/gradient_radial_accent">
+    tools:context="com.rsd.tutor.activity.LoginActivity">
 
     <RelativeLayout
         android:id="@+id/container_overlay"
@@ -31,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_xlarge"
-                android:textColor="@color/base_color_secondary"
+                android:textColor="@color/base_grey_secondary"
                 android:text="@string/authenticating"
                 android:gravity="center"
                 android:layout_centerInParent="true" />
@@ -43,14 +42,14 @@
             android:id="@+id/title_login"
             android:text="@string/app_name"
             android:textSize="@dimen/text_xxxlarge"
-            android:textColor="@color/base_accent"
+            android:textColor="@color/cerise"
             android:gravity="center"
             android:layout_above="@+id/container_input"
             android:layout_marginBottom="@dimen/margin_default"
-            android:shadowColor="#000000"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowRadius="1" />
+            android:shadowColor="@color/base_grey_dark"
+            android:shadowDx="6"
+            android:shadowDy="6"
+            android:shadowRadius="18" />
 
         <LinearLayout
             style="@style/margins_width_default"
@@ -62,21 +61,19 @@
             <com.rsd.tutor.custom.DeleteEditText
                 style="@style/input_login"
                 android:id="@+id/input_user_name"
-                android:hint="@string/hint_username"
-                android:singleLine="true" />
+                android:hint="@string/hint_username" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin_smallest"
-                android:background="@color/base_color"
+                android:background="@color/base_grey"
                 android:layout_marginLeft="@dimen/margin_default_half"
                 android:layout_marginRight="@dimen/margin_default_half" />
 
             <com.rsd.tutor.custom.DeleteEditText
                 style="@style/input_login"
                 android:id="@+id/input_password"
-                android:hint="@string/hint_password"
-                android:singleLine="true" />
+                android:hint="@string/hint_password" />
         </LinearLayout>
 
         <Button
@@ -84,12 +81,16 @@
             android:id="@+id/button_login"
             android:text="@string/sign_in"
             android:textSize="@dimen/text_xlarge"
-            android:textColor="@color/base_color"
-            android:background="@drawable/selector_button"
+            android:textColor="@color/base_grey_dark"
+            android:background="@drawable/selector_button_cerise"
             android:layout_below="@id/container_input"
             android:layout_marginTop="@dimen/margin_default"
             android:enabled="false"
-            android:alpha="0.4" />
+            android:alpha="0.4"
+            android:shadowColor="@color/base_grey_dark"
+            android:shadowDx="6"
+            android:shadowDy="6"
+            android:shadowRadius="18" />
 
     </RelativeLayout>
 

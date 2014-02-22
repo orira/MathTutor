@@ -18,8 +18,6 @@ public enum WorksheetStatus {
     private WorksheetStatus(final int value) {
         this.value = value;
         this.displayName = setDisplayName();
-
-
     }
 
     private String setDisplayName() {
@@ -44,5 +42,9 @@ public enum WorksheetStatus {
 
     public int getValue() {
         return value;
+    }
+
+    public String getDisplayName() {
+        return displayName;
     }
 }
