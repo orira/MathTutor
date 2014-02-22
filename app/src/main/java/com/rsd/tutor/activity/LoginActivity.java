@@ -12,8 +12,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.rsd.tutor.R;
+import com.rsd.tutor.asynctask.LoginAsyncTask;
 import com.rsd.tutor.custom.DeleteEditText;
 import com.rsd.tutor.custom.TextWatcherCallBack;
+import com.rsd.tutor.fragment.TaskFragment;
 import com.rsd.tutor.module.AuthenticationServiceModule;
 import com.rsd.tutor.module.Service;
 import com.rsd.tutor.service.AuthenticationService;
@@ -35,10 +37,6 @@ public class LoginActivity extends BaseActivity implements TextWatcherCallBack, 
     private float mInactiveAlphaValue;
     private boolean mInvalidLogin = false;
     private boolean mInputAnimated = false;
-
-    @Inject
-    @Named(Service.LOGIN_SERVICE_STUB)
-    AuthenticationService mAuthenticationService;
 
     @InjectView(R.id.activity_login_container)
     RelativeLayout mContainer;
@@ -165,10 +163,17 @@ public class LoginActivity extends BaseActivity implements TextWatcherCallBack, 
 
     @OnClick(R.id.activity_login_bt)
     public void login() {
+        initialiseAsyncTask(mInputUserName.getText().toString(), mInputPassword.getText().toString());
         initialiseAuthenticationLabel();
         showAutheticationView(true);
         toggleInputAccessability();
-        mAuthenticationService.authenticateCredentials(this, mInputUserName.getText().toString(), mInputPassword.getText().toString());
+    }
+
+    private void initialiseAsyncTask(String userName, String password) {
+        LoginAsyncTask asyncTask = new LoginAsyncTask(this, userName, password);
+        TaskFragment taskFragment = new TaskFragment(asyncTask);
+
+        initialiseTaskFragment(taskFragment);
     }
 
     private void initialiseAuthenticationLabel() {

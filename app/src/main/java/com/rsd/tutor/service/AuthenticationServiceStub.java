@@ -1,9 +1,5 @@
 package com.rsd.tutor.service;
 
-import android.os.Handler;
-
-import com.rsd.tutor.activity.AuthenticationRequest;
-
 import javax.inject.Singleton;
 
 /**
@@ -13,13 +9,14 @@ import javax.inject.Singleton;
 public class AuthenticationServiceStub implements AuthenticationService {
 
     @Override
-    public void authenticateCredentials(final AuthenticationRequest authenticationRequest, String userName, String password) {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                authenticationRequest.authenticationComplete(true);
-            }
-        }, 3000);
+    public boolean authenticateCredentials(String userName, String password) {
 
+        /*try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
+
+        return true;
     }
 }

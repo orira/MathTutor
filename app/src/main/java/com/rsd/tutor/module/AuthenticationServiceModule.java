@@ -1,6 +1,7 @@
 package com.rsd.tutor.module;
 
 import com.rsd.tutor.activity.LoginActivity;
+import com.rsd.tutor.asynctask.LoginAsyncTask;
 import com.rsd.tutor.service.AuthenticationServiceStub;
 import com.rsd.tutor.service.AuthenticationService;
 
@@ -14,7 +15,7 @@ import dagger.Provides;
  * Created by wadereweti on 9/02/14.
  */
 @Module(
-        injects = LoginActivity.class
+        injects = {LoginActivity.class, LoginAsyncTask.class}
 )
 public class AuthenticationServiceModule {
 
