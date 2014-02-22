@@ -85,4 +85,9 @@ public class MainActivity extends BaseActivity implements UserInteraction{
         Intent intent = new Intent(this, FragmentUtil.getDestinationActivity(position));
         startActivity(intent);
     }
+
+    @Override
+    public boolean isCurrentPosition(int position) {
+        return mViewPagerMain.getCurrentItem() == position;
+    }
 }

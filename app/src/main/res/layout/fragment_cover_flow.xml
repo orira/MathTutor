@@ -4,13 +4,14 @@
     android:id="@+id/container_fragment_cover_flow"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#00FFFFFF">
+    android:orientation="vertical">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/fragment_cover_flow_image"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:src="@drawable/img_book_green"
+        android:background="@color/base_grey"
         android:layout_centerInParent="true" />
 
     <TextView

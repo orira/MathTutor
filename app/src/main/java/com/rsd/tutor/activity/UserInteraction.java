@@ -5,4 +5,5 @@ package com.rsd.tutor.activity;
  */
 public interface UserInteraction {
     public void workItemSelected(int position);
+    public boolean isCurrentPosition(int position);
 }

@@ -9,6 +9,8 @@ import android.text.Spanned;
 import android.util.Property;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
+import com.rsd.tutor.R;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -43,7 +45,7 @@ public class SpanBuilder {
         });
 
         objectAnimator.setInterpolator(mSmoothInterpolator);
-        objectAnimator.setDuration(4000);
+        objectAnimator.setDuration(mTargetActivity.getResources().getInteger(R.integer.animation_duration_fireworks));
         objectAnimator.start();
     }
 

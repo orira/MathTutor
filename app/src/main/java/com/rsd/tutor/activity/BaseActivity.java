@@ -10,7 +10,7 @@ import com.rsd.tutor.R;
  */
 public class BaseActivity extends FragmentActivity {
 
-    protected boolean debug = false;
+    protected static final boolean debug = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

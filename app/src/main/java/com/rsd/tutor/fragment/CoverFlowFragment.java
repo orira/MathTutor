@@ -58,8 +58,10 @@ public class CoverFlowFragment extends Fragment {
      * Scale view down with an overshoot interpolator then call
      * back to parent to run Intent to correct @Link(Activity)
      */
-    @OnClick(R.id.container_fragment_cover_flow)
+    @OnClick(R.id.fragment_cover_flow_image)
     public void handleClick(final View view) {
-        AnimationUtil.runOvershootAnimationOnClick(view, mUserInteraction, mPosition);
+        if (mUserInteraction.isCurrentPosition(mPosition)) {
+            AnimationUtil.runOvershootAnimationOnClick(view, mUserInteraction, mPosition);
+        }
     }
 }
