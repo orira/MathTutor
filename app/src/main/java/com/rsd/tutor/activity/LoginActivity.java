@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class LoginActivity extends AbstractActivity implements TextWatcherCallBack, AuthenticationRequest {
+public class LoginActivity extends AbstractActivity implements TextWatcherCallBack {
     private static final String TAG = "LoginActivity";
 
     private float mInactiveAlphaValue;
@@ -89,16 +89,6 @@ public class LoginActivity extends AbstractActivity implements TextWatcherCallBa
 
     @Override
     protected void asyncTaskComplete(boolean authenticated) {
-        if (authenticated) {
-            transitionToMainActivity();
-        } else {
-            showAuthenticationError();
-        }
-    }
-
-
-    @Override
-    public void authenticationComplete(boolean authenticated) {
         if (authenticated) {
             transitionToMainActivity();
         } else {
