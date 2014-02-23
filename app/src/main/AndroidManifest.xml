@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.rsd.tutor" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <meta-data android:name="AA_DB_NAME" android:value="kaiako.db" />
+    <meta-data android:name="AA_DB_VERSION" android:value="2" />
+
     <application
         android:theme="@style/AppTheme"
         android:name=".KaiakoApplication"
@@ -27,9 +34,6 @@
         <activity
             android:name=".activity.WorksheetCompletedActivity"
             android:parentActivityName=".activity.MainActivity" />
-
-        <meta-data android:name="AA_DB_NAME" android:value="kaiako.db" />
-        <meta-data android:name="AA_DB_VERSION" android:value="1" />
     </application>
 
 </manifest>

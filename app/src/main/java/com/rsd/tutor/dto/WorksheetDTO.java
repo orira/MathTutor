@@ -10,6 +10,7 @@ import java.util.List;
  * Created by wadereweti on 11/02/14.
  */
 public class WorksheetDto {
+    private long id;
     private int numberOfQuestions;
     private WorksheetStatus status;
     private Date duration;
@@ -18,6 +19,14 @@ public class WorksheetDto {
     private Date assessedDate;
     private String assessor;
     private List<QuestionDto> questions;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public int getNumberOfQuestions() {
         return numberOfQuestions;

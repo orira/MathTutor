@@ -11,7 +11,7 @@ import com.android.volley.toolbox.Volley;
 /**
  * Created by wadereweti on 9/02/14.
  */
-public class KaiakoApplication extends Application {
+public class KaiakoApplication extends com.activeandroid.app.Application {
 
     public static final String TAG = "KaiakoApplication";
 
