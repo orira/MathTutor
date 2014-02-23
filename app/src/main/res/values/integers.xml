@@ -4,6 +4,6 @@
 
     <!-- Animation Values -->
     <integer name="duration_animation_click">100</integer>
-    <integer name="animation_tension">5</integer>
+    <integer name="animation_tension">2</integer>
     <integer name="animation_duration_fireworks">4000</integer>
 </resources>

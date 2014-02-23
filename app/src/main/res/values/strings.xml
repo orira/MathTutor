@@ -15,5 +15,6 @@
     <string name="title_book_worksheets_completed">Completed</string>
     <string name="title_book_worksheets_assigned">Assigned</string>
     <string name="title_book_assessments">Assessment</string>
+    <string name="toast_worksheets_fetched">Worsheets updated</string>
 
 </resources>

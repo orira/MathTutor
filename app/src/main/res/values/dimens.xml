@@ -27,6 +27,6 @@
     <item name="alpha_button_disabled" type="dimen" format="float">0.4</item>
 
     <!-- Animations -->
-    <item name="scale_factor_click" type="dimen" format="float">0.8</item>
+    <item name="scale_factor_click" type="dimen" format="float">0.95</item>
 
 </resources>

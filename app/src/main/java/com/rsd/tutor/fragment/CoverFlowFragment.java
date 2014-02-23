@@ -5,6 +5,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.rsd.tutor.R;
@@ -23,14 +25,23 @@ public class CoverFlowFragment extends Fragment {
     private UserInteraction mUserInteraction;
     private int mPosition;
 
+    @InjectView(R.id.fragment_cover_flow_container)
+    RelativeLayout mFragmentCoverFlowContainer;
+
     @InjectView(R.id.fragment_cover_flow_tv_title_book)
     TextView mTitleBook;
 
-    public CoverFlowFragment(){}
+    public CoverFlowFragment() {}
 
     public CoverFlowFragment(UserInteraction userInteraction, int position) {
         mUserInteraction = userInteraction;
         mPosition = position;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
     }
 
     @Override
@@ -59,7 +70,7 @@ public class CoverFlowFragment extends Fragment {
     @OnClick(R.id.fragment_cover_flow_iv_book)
     public void handleClick(final View view) {
         if (mUserInteraction.isCurrentPosition(mPosition)) {
-            AnimationUtil.runOvershootAnimationOnClick(view, mUserInteraction, mPosition);
+            AnimationUtil.runOvershootAnimationOnClick(mFragmentCoverFlowContainer, mUserInteraction, mPosition);
         }
     }
 }

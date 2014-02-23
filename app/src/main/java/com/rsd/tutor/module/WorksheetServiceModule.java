@@ -16,7 +16,7 @@ import dagger.Provides;
  */
 
 @Module (
-        injects = WorksheetAsyncTask.class,
+        injects = {WorksheetAssignedActivity.class, WorksheetAsyncTask.class},
         library = true
 )
 public class WorksheetServiceModule {

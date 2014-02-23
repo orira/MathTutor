@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.rsd.tutor.R;
 import com.rsd.tutor.adapter.MainViewPagerAdapter;
@@ -68,7 +69,8 @@ public class MainActivity extends BaseActivity implements UserInteraction{
 
     @Override
     protected void asyncTaskComplete(boolean result) {
-
+        Toast toast = Toast.makeText(this, getString(R.string.toast_worksheets_fetched), Toast.LENGTH_LONG);
+        toast.show();
     }
 
     private void initialiseViewPager() {

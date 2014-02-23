@@ -43,7 +43,7 @@ public class WorksheetServiceStub implements WorksheetService {
         }
 
         List<Worksheet> worksheets = Worksheet.getAll();
-        
+
         // Investigate if wrapped in a transaction is more performant
         /*for (WorksheetDto dto : dtos) {
             ActiveAndroid.beginTransaction();
