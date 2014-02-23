@@ -22,7 +22,7 @@ import dagger.ObjectGraph;
 /**
  * Created by Raukawa on 2/16/14.
  */
-public class WorksheetAssignedActivity extends BaseActivity implements WorksheetRequest {
+public class WorksheetAssignedActivity extends AbstractActivity implements WorksheetRequest {
 
     @Inject
     @Named(Service.WORKSHEET_STUB)

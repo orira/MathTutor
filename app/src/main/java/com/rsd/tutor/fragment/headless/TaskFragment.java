@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.rsd.tutor.activity.AsyncTaskCallBack;
-import com.rsd.tutor.asynctask.BaseAsyncTask;
 
 /**
  * Created by Raukawa on 2/23/14.

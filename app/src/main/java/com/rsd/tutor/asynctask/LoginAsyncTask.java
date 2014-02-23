@@ -1,10 +1,8 @@
 package com.rsd.tutor.asynctask;
 
-import android.os.AsyncTask;
 import android.util.Log;
 
 import com.rsd.tutor.activity.AsyncTaskCallBack;
-import com.rsd.tutor.activity.AuthenticationRequest;
 import com.rsd.tutor.module.AuthenticationServiceModule;
 import com.rsd.tutor.module.Service;
 import com.rsd.tutor.service.AuthenticationService;
@@ -17,7 +15,7 @@ import dagger.ObjectGraph;
 /**
  * Created by Raukawa on 2/23/14.
  */
-public class LoginAsyncTask extends BaseAsyncTask<Object, Void, Boolean> {
+public class LoginAsyncTask extends AbstractAsyncTask<Object, Void, Boolean> {
 
     private static final String TAG = "LoginAsyncTask";
 

@@ -1,15 +1,9 @@
 package com.rsd.tutor.asynctask;
 
-import android.os.AsyncTask;
-
 import com.rsd.tutor.activity.AsyncTaskCallBack;
-import com.rsd.tutor.activity.WorksheetRequest;
 import com.rsd.tutor.module.Service;
 import com.rsd.tutor.module.WorksheetServiceModule;
-import com.rsd.tutor.persistence.domain.Worksheet;
 import com.rsd.tutor.service.WorksheetService;
-
-import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -19,7 +13,7 @@ import dagger.ObjectGraph;
 /**
  * Created by Raukawa on 2/23/14.
  */
-public class WorksheetAsyncTask extends BaseAsyncTask<Object, Void, Boolean> {
+public class WorksheetAsyncTask extends AbstractAsyncTask<Object, Void, Boolean> {
 
     @Inject
     @Named(Service.WORKSHEET_STUB)

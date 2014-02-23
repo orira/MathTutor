@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class LoginActivity extends BaseActivity implements TextWatcherCallBack, AuthenticationRequest {
+public class LoginActivity extends AbstractActivity implements TextWatcherCallBack, AuthenticationRequest {
     private static final String TAG = "LoginActivity";
 
     private float mInactiveAlphaValue;

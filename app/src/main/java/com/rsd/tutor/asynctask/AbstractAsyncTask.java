@@ -9,13 +9,13 @@ import dagger.Provides;
 /**
  * Created by Raukawa on 2/23/14.
  */
-public abstract class BaseAsyncTask<Params, Progress, Result> extends AsyncTask<Params, Progress, Result> {
+public abstract class AbstractAsyncTask<Params, Progress, Result> extends AsyncTask<Params, Progress, Result> {
 
     protected AsyncTaskCallBack mAsyncTaskCallBack;
 
-    public BaseAsyncTask(){}
+    public AbstractAsyncTask(){}
 
-    public BaseAsyncTask(AsyncTaskCallBack asyncTaskCallBack) {
+    public AbstractAsyncTask(AsyncTaskCallBack asyncTaskCallBack) {
         mAsyncTaskCallBack = asyncTaskCallBack;
     }
 

@@ -25,7 +25,7 @@ import butterknife.InjectView;
 /**
  * Created by wadereweti on 9/02/14.
  */
-public class MainActivity extends BaseActivity implements UserInteraction{
+public class MainActivity extends AbstractActivity implements UserInteraction{
 
     private static final String TAG = "MainActivity";
 

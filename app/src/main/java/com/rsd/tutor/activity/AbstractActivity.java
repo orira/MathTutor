@@ -9,7 +9,7 @@ import com.rsd.tutor.fragment.headless.TaskFragment;
 /**
  * Created by Raukawa on 2/19/14.
  */
-public abstract class  BaseActivity extends FragmentActivity implements AsyncTaskCallBack {
+public abstract class AbstractActivity extends FragmentActivity implements AsyncTaskCallBack {
 
     protected static final boolean debug = false;
     private static final String TASK_FRAGMENT_TAG = "task";
