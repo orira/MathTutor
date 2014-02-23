@@ -46,6 +46,11 @@ public class WorksheetAssignedActivity extends BaseActivity implements Worksheet
         }
     }
 
+    @Override
+    protected void asyncTaskComplete(boolean result) {
+
+    }
+
     private void initialiseInjection() {
         ObjectGraph.create(new WorksheetServiceModule()).inject(this);
     }

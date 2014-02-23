@@ -20,11 +20,13 @@ import butterknife.OnClick;
  */
 public class CoverFlowFragment extends Fragment {
 
-    final private UserInteraction mUserInteraction;
-    final private int mPosition;
+    private UserInteraction mUserInteraction;
+    private int mPosition;
 
     @InjectView(R.id.fragment_cover_flow_tv_title_book)
     TextView mTitleBook;
+
+    public CoverFlowFragment(){}
 
     public CoverFlowFragment(UserInteraction userInteraction, int position) {
         mUserInteraction = userInteraction;

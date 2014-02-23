@@ -20,14 +20,14 @@ public class DaoModule {
 
     /*@Provides
     @Singleton
-    @Named(Service.LOGIN_SERVICE_IMPL)
+    @Named(Service.LOGIN_IMPL)
     AuthenticationService provideLoginServiceImpl() {
         return new AuthenticationServiceImpl();
     }
 
     @Provides
     @Singleton
-    @Named(Service.LOGIN_SERVICE_STUB)
+    @Named(Service.LOGIN_STUB)
     AuthenticationService provideLoginServiceStub() {
         return new AuthenticationServiceStub();
     }*/

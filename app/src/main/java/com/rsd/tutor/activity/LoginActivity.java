@@ -15,21 +15,14 @@ import com.rsd.tutor.R;
 import com.rsd.tutor.asynctask.LoginAsyncTask;
 import com.rsd.tutor.custom.DeleteEditText;
 import com.rsd.tutor.custom.TextWatcherCallBack;
-import com.rsd.tutor.fragment.TaskFragment;
-import com.rsd.tutor.module.AuthenticationServiceModule;
-import com.rsd.tutor.module.Service;
-import com.rsd.tutor.service.AuthenticationService;
+import com.rsd.tutor.fragment.headless.TaskFragment;
 import com.rsd.tutor.util.AnimationUtil;
 import com.rsd.tutor.util.TypeValueUtil;
 import com.rsd.tutor.util.TypefaceUtil;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
-import dagger.ObjectGraph;
 
 public class LoginActivity extends BaseActivity implements TextWatcherCallBack, AuthenticationRequest {
     private static final String TAG = "LoginActivity";
@@ -95,6 +88,16 @@ public class LoginActivity extends BaseActivity implements TextWatcherCallBack, 
     }
 
     @Override
+    protected void asyncTaskComplete(boolean authenticated) {
+        if (authenticated) {
+            transitionToMainActivity();
+        } else {
+            showAuthenticationError();
+        }
+    }
+
+
+    @Override
     public void authenticationComplete(boolean authenticated) {
         if (authenticated) {
             transitionToMainActivity();
@@ -105,7 +108,6 @@ public class LoginActivity extends BaseActivity implements TextWatcherCallBack, 
 
     private void initialiseInjection() {
         ButterKnife.inject(this);
-        ObjectGraph.create(new AuthenticationServiceModule()).inject(this);
     }
 
     private void initialiseViewProperties() {

@@ -4,12 +4,16 @@ import android.os.AsyncTask;
 
 import com.rsd.tutor.activity.AsyncTaskCallBack;
 
+import dagger.Provides;
+
 /**
  * Created by Raukawa on 2/23/14.
  */
-public class BaseAsyncTask extends AsyncTask<Void, Integer, Void> {
+public abstract class BaseAsyncTask<Params, Progress, Result> extends AsyncTask<Params, Progress, Result> {
 
-    private AsyncTaskCallBack mAsyncTaskCallBack;
+    protected AsyncTaskCallBack mAsyncTaskCallBack;
+
+    public BaseAsyncTask(){}
 
     public BaseAsyncTask(AsyncTaskCallBack asyncTaskCallBack) {
         mAsyncTaskCallBack = asyncTaskCallBack;
@@ -22,25 +26,6 @@ public class BaseAsyncTask extends AsyncTask<Void, Integer, Void> {
         if (mAsyncTaskCallBack != null) {
             mAsyncTaskCallBack.onPreExecute();
         }
-    }
-
-    @Override
-    protected Void doInBackground(Void... voids) {
-        return null;
-    }
-
-    @Override
-    protected void onProgressUpdate(Integer... values) {
-        super.onProgressUpdate(values);
-
-        mAsyncTaskCallBack.onProgressUpdate(values[0]);
-    }
-
-    @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
-
-        mAsyncTaskCallBack.onPostExecute();
     }
 
     @Override

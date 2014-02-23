@@ -1,6 +1,7 @@
 package com.rsd.tutor.module;
 
 import com.rsd.tutor.activity.WorksheetAssignedActivity;
+import com.rsd.tutor.asynctask.WorksheetAsyncTask;
 import com.rsd.tutor.service.WorksheetService;
 import com.rsd.tutor.service.WorksheetServiceStub;
 
@@ -15,14 +16,22 @@ import dagger.Provides;
  */
 
 @Module (
-        injects = WorksheetAssignedActivity.class
+        injects = WorksheetAsyncTask.class,
+        library = true
 )
 public class WorksheetServiceModule {
 
     @Provides
     @Singleton
     @Named(Service.WORKSHEET_STUB)
-    WorksheetService provideWorksheetService() {
+    WorksheetService provideWorksheetServiceStub() {
+        return new WorksheetServiceStub();
+    }
+
+    @Provides
+    @Singleton
+    @Named(Service.WORKSHEET_IMPL)
+    WorksheetService provideWorksheetServiceImpl() {
         return new WorksheetServiceStub();
     }
 }

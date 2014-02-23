@@ -52,4 +52,11 @@ public class Worksheet extends Model{
                 .where(STATUS + IS_EQUAL_TO, status.getDisplayName())
                 .execute();
     }
+
+    public static void createWorksheet(WorksheetDto dto) {
+        Worksheet worksheet = new Worksheet();
+        //BeanUtils.copy
+
+
+    }
 }

@@ -8,8 +8,10 @@ import android.widget.LinearLayout;
 
 import com.rsd.tutor.R;
 import com.rsd.tutor.adapter.MainViewPagerAdapter;
+import com.rsd.tutor.asynctask.WorksheetAsyncTask;
 import com.rsd.tutor.fragment.CoverFlowFragment;
 import com.rsd.tutor.fragment.FragmentUtil;
+import com.rsd.tutor.fragment.headless.TaskFragment;
 import com.rsd.tutor.fragment.transformer.ZoomPageTransformer;
 import com.rsd.tutor.widget.SpanBuilder;
 
@@ -39,9 +41,9 @@ public class MainActivity extends BaseActivity implements UserInteraction{
         setContentView(R.layout.activity_main);
 
         initialiseInjection();
+        initialiseAsyncTask();
         initialiseViewPager();
     }
-
 
     @Override
     protected void onStart() {
@@ -56,6 +58,17 @@ public class MainActivity extends BaseActivity implements UserInteraction{
 
     private void initialiseInjection() {
         ButterKnife.inject(this);
+    }
+
+    private void initialiseAsyncTask() {
+        WorksheetAsyncTask asyncTask = new WorksheetAsyncTask(this);
+        TaskFragment taskFragment = new TaskFragment(asyncTask);
+        initialiseTaskFragment(taskFragment);
+    }
+
+    @Override
+    protected void asyncTaskComplete(boolean result) {
+
     }
 
     private void initialiseViewPager() {

@@ -7,5 +7,5 @@ public interface AsyncTaskCallBack {
     void onPreExecute();
     void onProgressUpdate(int percent);
     void onCancelled();
-    void onPostExecute();
+    void onPostExecute(boolean result);
 }

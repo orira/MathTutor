@@ -1,17 +1,15 @@
 package com.rsd.tutor.activity;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 
-import com.rsd.tutor.R;
-import com.rsd.tutor.fragment.TaskFragment;
+import com.rsd.tutor.fragment.headless.TaskFragment;
 
 /**
  * Created by Raukawa on 2/19/14.
  */
-public class BaseActivity extends FragmentActivity implements AsyncTaskCallBack {
+public abstract class  BaseActivity extends FragmentActivity implements AsyncTaskCallBack {
 
     protected static final boolean debug = false;
     private static final String TASK_FRAGMENT_TAG = "task";
@@ -30,9 +28,8 @@ public class BaseActivity extends FragmentActivity implements AsyncTaskCallBack 
         if (mTaskFragment == null) {
             mTaskFragment = taskFragment;
             fragmentManager.beginTransaction().add(mTaskFragment, TASK_FRAGMENT_TAG).commit();
+            mTaskFragment.executeAsyncTask();
         }
-
-        mTaskFragment.executeAsyncTask();
     }
 
     @Override
@@ -51,7 +48,10 @@ public class BaseActivity extends FragmentActivity implements AsyncTaskCallBack 
     }
 
     @Override
-    public void onPostExecute() {
-
+    public void onPostExecute(boolean result) {
+        asyncTaskComplete(result);
     }
+
+    // Leave implementation to subclass
+    protected abstract void asyncTaskComplete(boolean result);
 }
