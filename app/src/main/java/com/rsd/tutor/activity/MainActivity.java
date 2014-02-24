@@ -14,6 +14,8 @@ import com.rsd.tutor.fragment.CoverFlowFragment;
 import com.rsd.tutor.fragment.FragmentUtil;
 import com.rsd.tutor.fragment.headless.TaskFragment;
 import com.rsd.tutor.fragment.transformer.ZoomPageTransformer;
+import com.rsd.tutor.util.DisplayUtil;
+import com.rsd.tutor.util.LogUtil;
 import com.rsd.tutor.widget.SpanBuilder;
 
 import java.util.ArrayList;
@@ -37,17 +39,21 @@ public class MainActivity extends AbstractActivity implements UserInteraction{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        LogUtil.logTime(TAG, "onCreate called");
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
 
+        LogUtil.logTime(TAG, "before injection");
         initialiseInjection();
+        LogUtil.logTime(TAG, "after injection");
         initialiseAsyncTask();
         initialiseViewPager();
     }
 
     @Override
     protected void onStart() {
+        LogUtil.logTime(TAG, "onStart called");
         super.onStart();
         animateActionBarTitle();
     }
@@ -78,7 +84,17 @@ public class MainActivity extends AbstractActivity implements UserInteraction{
 
         mViewPagerMain.setAdapter(new MainViewPagerAdapter(getSupportFragmentManager(), fragments));
         mViewPagerMain.setOffscreenPageLimit(2);
-        mViewPagerMain.setPageMargin(getResources().getInteger(R.integer.margin_view_pager));
+
+        int marginOffset;
+        if  (DisplayUtil.isXhdpi()) {
+            marginOffset = getResources().getInteger(R.integer.margin_view_pager_xdpi);
+        } else if (DisplayUtil.isHdpi()) {
+            marginOffset = getResources().getInteger(R.integer.margin_view_pager_hdpi);
+        } else {
+            marginOffset = getResources().getInteger(R.integer.margin_view_pager_mdpi);
+        }
+
+        mViewPagerMain.setPageMargin(marginOffset);
         mViewPagerMain.setPageTransformer(false, new ZoomPageTransformer());
     }
 
