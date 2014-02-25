@@ -12,7 +12,8 @@
         android:layout_height="400dp"
         android:src="@drawable/img_book_green"
         android:background="@color/base_grey"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:contentDescription="@string/img_cover_flow_book"/>
 
     <TextView
         android:id="@+id/fragment_cover_flow_tv_title_book"

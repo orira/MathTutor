@@ -9,11 +9,11 @@ import java.util.List;
 /**
  * Created by Raukawa on 2/25/14.
  */
-public class WorksheetAssessmentPagerAdapter extends FragmentPagerAdapter {
+public class WorksheetPagerAdapter extends FragmentPagerAdapter {
 
     private List<Fragment> mFragments;
 
-    public WorksheetAssessmentPagerAdapter(FragmentManager fragmentManager, List<Fragment> fragments) {
+    public WorksheetPagerAdapter(FragmentManager fragmentManager, List<Fragment> fragments) {
         super(fragmentManager);
         mFragments = fragments;
     }

@@ -1,14 +1,15 @@
 package com.rsd.tutor.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 
 import com.rsd.tutor.R;
-import com.rsd.tutor.adapter.WorksheetAssessmentPagerAdapter;
+import com.rsd.tutor.adapter.WorksheetPagerAdapter;
+import com.rsd.tutor.fragment.WorksheetPreviewFragment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -37,11 +38,14 @@ public class WorksheetAssessmentActivity extends FragmentActivity {
     }
 
     private void setupViewPager() {
-        WorksheetAssessmentPagerAdapter adapter = new WorksheetAssessmentPagerAdapter(getSupportFragmentManager(), initialiseFragments());
+        WorksheetPagerAdapter adapter = new WorksheetPagerAdapter(getSupportFragmentManager(), initialiseFragments());
         mViewPager.setAdapter(adapter);
     }
 
     private List<Fragment> initialiseFragments() {
-        return null;
+        List<Fragment> fragments = new ArrayList<Fragment>();
+        fragments.add(new WorksheetPreviewFragment());
+
+        return fragments;
     }
 }

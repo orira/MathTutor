@@ -38,4 +38,21 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+
+    <!-- Label Styles -->
+    <style name="label_xLarge" parent="wrap_content">
+        <item name="android:textSize">@dimen/text_xlarge</item>
+    </style>
+
+    <style name="label_large" parent="wrap_content">
+        <item name="android:textSize">@dimen/text_large</item>
+    </style>
+
+    <style name="preview_label" parent="label_large">
+        <!-- find a real value -->
+        <item name="android:layout_width">275dp</item>
+        <item name="android:layout_marginBottom">@dimen/margin_default</item>
+    </style>
+
+
 </resources>

@@ -77,21 +77,14 @@
         </LinearLayout>
 
         <Button
-            style="@style/margins_width_default"
+            style="@style/button_login"
             android:id="@+id/activity_login_bt"
             android:text="@string/sign_in"
             android:textSize="@dimen/text_xlarge"
-            android:textColor="@color/base_grey_dark"
-            android:background="@drawable/selector_button_cerise"
             android:layout_below="@id/activity_login_container_input"
             android:layout_marginTop="@dimen/margin_default"
             android:enabled="false"
-            android:alpha="0.4"
-            android:shadowColor="@color/base_grey_dark"
-            android:shadowDx="6"
-            android:shadowDy="6"
-            android:shadowRadius="18" />
-
+            android:alpha="0.4" />
     </RelativeLayout>
 
 
