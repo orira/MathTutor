@@ -16,7 +16,7 @@ import com.rsd.tutor.asynctask.LoginAsyncTask;
 import com.rsd.tutor.custom.DeleteEditText;
 import com.rsd.tutor.custom.TextWatcherCallBack;
 import com.rsd.tutor.fragment.headless.TaskFragment;
-import com.rsd.tutor.util.AnimationUtil;
+import com.rsd.tutor.util.TransitionAnimationUtil;
 import com.rsd.tutor.util.TypeValueUtil;
 import com.rsd.tutor.util.TypefaceUtil;
 
@@ -197,7 +197,7 @@ public class LoginActivity extends AbstractActivity implements TextWatcherCallBa
 
     private void transitionToMainActivity() {
         final Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        final Bundle animation = AnimationUtil.getNewNodeAnimation(this);
+        final Bundle animation = TransitionAnimationUtil.getNewNodeAnimation(this);
         startActivity(intent, animation);
 
         // re-enable this once styling finished of login page

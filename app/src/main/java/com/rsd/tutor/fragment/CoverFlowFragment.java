@@ -5,13 +5,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.rsd.tutor.R;
 import com.rsd.tutor.activity.UserInteraction;
-import com.rsd.tutor.util.AnimationUtil;
+import com.rsd.tutor.util.TransitionAnimationUtil;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -70,7 +69,7 @@ public class CoverFlowFragment extends Fragment {
     @OnClick(R.id.fragment_cover_flow_iv_book)
     public void handleClick(final View view) {
         if (mUserInteraction.isCurrentPosition(mPosition)) {
-            AnimationUtil.runOvershootAnimationOnClick(mFragmentCoverFlowContainer, mUserInteraction, mPosition);
+            TransitionAnimationUtil.runOvershootAnimationOnClick(mFragmentCoverFlowContainer, mUserInteraction, mPosition);
         }
     }
 }

@@ -13,7 +13,7 @@ import com.rsd.tutor.activity.UserInteraction;
 /**
  * Created by wadereweti on 9/02/14.
  */
-public class AnimationUtil {
+public class TransitionAnimationUtil {
     public static Bundle getNewNodeAnimation(Context context) {
         return ActivityOptions.makeCustomAnimation(context, R.anim.slide_in_bottom, R.anim.slide_out_top_parallax).toBundle();
     }
