@@ -8,7 +8,9 @@ import android.support.v4.view.ViewPager;
 
 import com.rsd.tutor.R;
 import com.rsd.tutor.adapter.WorksheetPagerAdapter;
+import com.rsd.tutor.fragment.DummyFragment;
 import com.rsd.tutor.fragment.WorksheetPreviewFragment;
+import com.rsd.tutor.fragment.transformer.ZoomPageTransformer;
 import com.rsd.tutor.module.Service;
 import com.rsd.tutor.module.WorksheetServiceModule;
 import com.rsd.tutor.persistence.SharedPrefs;
@@ -51,18 +53,32 @@ public class WorksheetAssignedActivity extends AbstractActivity implements Works
         initialiseViewPager();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mViewPager.setCurrentItem(1);
+    }
+
     private void initialiseViewPager() {
         WorksheetPagerAdapter adapter = new WorksheetPagerAdapter(getSupportFragmentManager(), initialiseFragments());
         mViewPager.setAdapter(adapter);
+        mViewPager.setPageMargin(100);
+        mViewPager.setPageTransformer(false, new ZoomPageTransformer());
     }
 
     private List<Fragment> initialiseFragments() {
         List<Fragment> fragments = new ArrayList<Fragment>();
 
-        if (checkFirstTimeUser()) {
+        if (!checkFirstTimeUser()) {
             fragments.add(new WorksheetPreviewFragment());
         } else {
+            fragments.add(new DummyFragment());
+            // Get worksheets from DB
+            for (int i = 0; i < 3; i++) {
+                fragments.add(new WorksheetPreviewFragment());
+            }
 
+            fragments.add(new DummyFragment());
         }
 
         return fragments;

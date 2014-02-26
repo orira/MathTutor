@@ -27,4 +27,8 @@ public class TypefaceUtil {
     public static Typeface getRobotoThin(Context context) {
         return Typeface.createFromAsset(context.getAssets(), PREFIX + THIN + SUFFIX);
     }
+
+    public static Typeface getRobotoLight(Context context) {
+        return Typeface.createFromAsset(context.getAssets(), PREFIX + LIGHT + SUFFIX);
+    }
 }

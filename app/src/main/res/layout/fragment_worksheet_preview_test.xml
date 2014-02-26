@@ -2,9 +2,9 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:padding="@dimen/margin_default_half"
+    android:padding="@dimen/margin_default_x1.5"
     android:weightSum="2"
     android:background="@drawable/background_rounded_corners">
 
@@ -19,7 +19,7 @@
             android:id="@+id/fragment_preview_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_medium"
+            android:textSize="@dimen/text_large"
             android:text="1. How many tables are there?" />
 
         <LinearLayout
@@ -29,20 +29,14 @@
             android:layout_below="@id/fragment_preview_question">
 
             <ImageView
-                android:layout_width="75dp"
-                android:layout_height="75dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:src="@drawable/ic_dinner_table"
                 android:layout_marginRight="@dimen/margin_default" />
 
             <ImageView
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:src="@drawable/ic_dinner_table"
-                android:layout_marginRight="@dimen/margin_default" />
-
-            <ImageView
-                android:layout_width="75dp"
-                android:layout_height="75dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:src="@drawable/ic_dinner_table" />
         </LinearLayout>
 
@@ -54,21 +48,21 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:paddingTop="@dimen/margin_default_half"
-        android:paddingLeft="@dimen/margin_default_half"
-        android:paddingRight="@dimen/margin_default_half">
+        android:paddingTop="@dimen/margin_default"
+        android:paddingLeft="@dimen/margin_default"
+        android:paddingRight="@dimen/margin_default">
 
         <com.rsd.tutor.custom.RobotoThinTextView
             android:id="@+id/fragment_preview_worksheet_id"
-            style="@style/label_micro"
-            android:text="WSY1E-C"
-            android:layout_marginBottom="@dimen/margin_default_half" />
-
-        <com.rsd.tutor.custom.RobotoBoldTextView
-            android:id="@+id/fragment_preview_worksheet_lesson_category"
             style="@style/label_large"
+            android:text="WSY1E-C"
+            android:layout_marginBottom="@dimen/margin_default" />
+
+        <TextView
+            android:id="@+id/fragment_preview_worksheet_lesson_category"
+            style="@style/label_xLarge"
             android:text="Can you count the objects?"
-            android:layout_marginBottom="@dimen/margin_default"
+            android:layout_marginBottom="@dimen/margin_default_x1.5"
             android:layout_below="@id/fragment_preview_worksheet_id" />
 
         <com.rsd.tutor.custom.RobotoLightTextView
@@ -79,7 +73,7 @@
 
         <TextView
             android:id="@+id/fragment_preview_worksheet_number_of_questions"
-            style="@style/label_small"
+            style="@style/label_large"
             android:text="20"
             android:layout_below="@id/fragment_preview_worksheet_lesson_category"
             android:layout_toRightOf="@id/fragment_preview_worksheet_number_of_questions_label" />
@@ -92,7 +86,7 @@
 
         <TextView
             android:id="@+id/fragment_preview_worksheet_number_of_questions"
-            style="@style/label_small"
+            style="@style/label_large"
             android:text="30 minutes"
             android:layout_below="@id/fragment_preview_worksheet_number_of_questions_label"
             android:layout_toRightOf="@id/fragment_preview_worksheet_duration_label" />
@@ -105,7 +99,7 @@
 
         <TextView
             android:id="@+id/fragment_preview_worksheet_difficulty"
-            style="@style/label_small"
+            style="@style/label_large"
             android:text="Entry"
             android:layout_below="@id/fragment_preview_worksheet_duration_label"
             android:layout_toRightOf="@id/fragment_preview_worksheet_difficulty_label" />
@@ -118,7 +112,7 @@
 
         <TextView
             android:id="@+id/fragment_preview_worksheet_difficulty"
-            style="@style/label_small"
+            style="@style/label_large"
             android:text="24th of Febuary 2014"
             android:layout_below="@id/fragment_preview_worksheet_difficulty_label"
             android:layout_toRightOf="@id/fragment_preview_worksheet_assigned_label" />
@@ -131,12 +125,12 @@
 
         <TextView
             android:id="@+id/fragment_preview_worksheet_status"
-            style="@style/label_small"
+            style="@style/label_large"
             android:text="Not attempted"
             android:layout_below="@id/fragment_preview_worksheet_assigned_label"
             android:layout_toRightOf="@id/fragment_preview_worksheet_assigned_label" />
 
-        <com.rsd.tutor.custom.RobotoLightTextView
+        <com.rsd.tutor.custom.RobotoBoldTextView
             android:id="@+id/fragment_preview_worksheet_time_taken_label"
             style="@style/preview_label"
             android:text="Time taken:"
@@ -144,7 +138,7 @@
 
         <TextView
             android:id="@+id/fragment_preview_worksheet_time_taken"
-            style="@style/label_small"
+            style="@style/label_large"
             android:text="Not started"
             android:layout_below="@id/fragment_preview_worksheet_status_label"
             android:layout_toRightOf="@id/fragment_preview_worksheet_time_taken_label" />
@@ -152,8 +146,8 @@
         <ImageButton
             android:id="@+id/fragment_preview_worksheet_bt"
             style="@style/button_base_color"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
             android:layout_alignParentBottom="true"
             android:src="@drawable/ic_play" />
 

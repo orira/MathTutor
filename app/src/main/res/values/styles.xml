@@ -48,9 +48,22 @@
         <item name="android:textSize">@dimen/text_large</item>
     </style>
 
-    <style name="preview_label" parent="label_large">
+    <style name="label_medium" parent="wrap_content">
+        <item name="android:textSize">@dimen/text_medium</item>
+    </style>
+
+    <style name="label_small" parent="wrap_content">
+        <item name="android:textSize">@dimen/text_small</item>
+    </style>
+
+    <style name="label_micro" parent="wrap_content">
+        <item name="android:textSize">@dimen/text_micro</item>
+    </style>
+
+
+    <style name="preview_label" parent="label_small">
         <!-- find a real value -->
-        <item name="android:layout_width">275dp</item>
+        <item name="android:layout_width">145dp</item>
         <item name="android:layout_marginBottom">@dimen/margin_default</item>
     </style>
 

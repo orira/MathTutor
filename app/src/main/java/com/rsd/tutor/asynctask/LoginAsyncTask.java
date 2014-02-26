@@ -39,7 +39,7 @@ public class LoginAsyncTask extends AbstractAsyncTask<Object, Void, Boolean> {
         Log.e(TAG, "starting call");
 
         try {
-            Thread.sleep(9000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

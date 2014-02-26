@@ -76,7 +76,7 @@ public class MainActivity extends AbstractActivity implements UserInteraction{
     @Override
     protected void asyncTaskComplete(boolean result) {
         Toast toast = Toast.makeText(this, getString(R.string.toast_worksheets_fetched), Toast.LENGTH_LONG);
-        toast.show();
+        //toast.show();
     }
 
     private void initialiseViewPager() {
