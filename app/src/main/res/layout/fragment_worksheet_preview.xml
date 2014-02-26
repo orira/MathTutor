@@ -12,13 +12,34 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:padding="@dimen/margin_default">
+        android:padding="@dimen/margin_default"
+        android:background="@drawable/background_white_corners_round">
 
         <TextView
+            android:id="@+id/fragment_preview_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_large"
-            android:text="1. Testing some placeholder text to see dimensions" />
+            android:text="1. How many tables are there?" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/fragment_preview_question">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/ic_dinner_table"
+                android:layout_marginRight="@dimen/margin_default" />
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/ic_dinner_table" />
+        </LinearLayout>
+
 
     </RelativeLayout>
 
@@ -27,7 +48,9 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:padding="@dimen/margin_default">
+        android:paddingTop="@dimen/margin_default"
+        android:paddingLeft="@dimen/margin_default"
+        android:paddingRight="@dimen/margin_default">
 
         <TextView
             android:id="@+id/fragment_preview_worksheet_id"
@@ -42,7 +65,7 @@
             android:layout_marginBottom="@dimen/margin_default_x1.5"
             android:layout_below="@id/fragment_preview_worksheet_id" />
 
-        <TextView
+        <com.rsd.tutor.custom.RobotoBoldTextView
             android:id="@+id/fragment_preview_worksheet_number_of_questions_label"
             style="@style/preview_label"
             android:text="Number of questions:"
@@ -55,7 +78,7 @@
             android:layout_below="@id/fragment_preview_worksheet_lesson_category"
             android:layout_toRightOf="@id/fragment_preview_worksheet_number_of_questions_label" />
 
-        <TextView
+        <com.rsd.tutor.custom.RobotoBoldTextView
             android:id="@+id/fragment_preview_worksheet_duration_label"
             style="@style/preview_label"
             android:text="Estimated duration:"
@@ -68,7 +91,7 @@
             android:layout_below="@id/fragment_preview_worksheet_number_of_questions_label"
             android:layout_toRightOf="@id/fragment_preview_worksheet_duration_label" />
 
-        <TextView
+        <com.rsd.tutor.custom.RobotoBoldTextView
             android:id="@+id/fragment_preview_worksheet_difficulty_label"
             style="@style/preview_label"
             android:text="Difficulty Level:"
@@ -81,7 +104,7 @@
             android:layout_below="@id/fragment_preview_worksheet_duration_label"
             android:layout_toRightOf="@id/fragment_preview_worksheet_difficulty_label" />
 
-        <TextView
+        <com.rsd.tutor.custom.RobotoBoldTextView
             android:id="@+id/fragment_preview_worksheet_assigned_label"
             style="@style/preview_label"
             android:text="Assigned date:"
@@ -94,7 +117,7 @@
             android:layout_below="@id/fragment_preview_worksheet_difficulty_label"
             android:layout_toRightOf="@id/fragment_preview_worksheet_assigned_label" />
 
-        <TextView
+        <com.rsd.tutor.custom.RobotoBoldTextView
             android:id="@+id/fragment_preview_worksheet_status_label"
             style="@style/preview_label"
             android:text="Status:"
@@ -107,7 +130,7 @@
             android:layout_below="@id/fragment_preview_worksheet_assigned_label"
             android:layout_toRightOf="@id/fragment_preview_worksheet_assigned_label" />
 
-        <TextView
+        <com.rsd.tutor.custom.RobotoBoldTextView
             android:id="@+id/fragment_preview_worksheet_time_taken_label"
             style="@style/preview_label"
             android:text="Time taken:"
@@ -116,7 +139,7 @@
         <TextView
             android:id="@+id/fragment_preview_worksheet_time_taken"
             style="@style/label_large"
-            android:text="5 minutes"
+            android:text="Not started"
             android:layout_below="@id/fragment_preview_worksheet_status_label"
             android:layout_toRightOf="@id/fragment_preview_worksheet_time_taken_label" />
 
@@ -126,7 +149,6 @@
             android:layout_width="300dp"
             android:layout_height="100dp"
             android:layout_alignParentBottom="true"
-            android:layout_centerInParent="true"
             android:src="@drawable/ic_play" />
 
     </RelativeLayout>

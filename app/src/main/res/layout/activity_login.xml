@@ -37,7 +37,7 @@
 
         </RelativeLayout>
 
-        <TextView
+        <com.rsd.tutor.custom.RobotoThinTextView
             style="@style/margins_width_default"
             android:id="@+id/activity_login_header_title"
             android:text="@string/app_name"

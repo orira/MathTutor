@@ -1,5 +1,8 @@
 package com.rsd.tutor.module;
 
+import android.content.Context;
+
+import com.rsd.tutor.KaiakoApplication;
 import com.rsd.tutor.asynctask.LoginAsyncTask;
 import com.rsd.tutor.service.AuthenticationServiceImpl;
 import com.rsd.tutor.service.AuthenticationServiceStub;
@@ -15,8 +18,8 @@ import dagger.Provides;
  * Created by wadereweti on 9/02/14.
  */
 @Module(
-        injects = LoginAsyncTask.class,
-        library = true
+    injects = LoginAsyncTask.class,
+    library = true
 )
 public class AuthenticationServiceModule {
 

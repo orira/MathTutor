@@ -24,7 +24,7 @@ public class TypefaceUtil {
         return Typeface.createFromAsset(context.getAssets(), PREFIX + BOLD + SUFFIX);
     }
 
-    public static Typeface getThin(Context context) {
+    public static Typeface getRobotoThin(Context context) {
         return Typeface.createFromAsset(context.getAssets(), PREFIX + THIN + SUFFIX);
     }
 }

@@ -103,7 +103,6 @@ public class LoginActivity extends AbstractActivity implements TextWatcherCallBa
     private void initialiseViewProperties() {
         mInactiveAlphaValue = TypeValueUtil.getFloatValue(R.dimen.alpha_button_disabled, this);
         mContainerLoginAuthentication.setScaleY(0);
-        mTitleLogin.setTypeface(TypefaceUtil.getThin(this));
     }
 
     private void initialiseInputs() {
