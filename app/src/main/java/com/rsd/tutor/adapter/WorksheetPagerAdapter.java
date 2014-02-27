@@ -30,21 +30,10 @@ public class WorksheetPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public float getPageWidth(int position) {
-        float fragmentWidth;
+        float fragmentWidth = .6f;
 
-        boolean evenNumberOfFragments = false;
-        if (mFragments.size() % 2 == 0) {
-            evenNumberOfFragments = true;
-        }
-
-        // get second to last fragment as we've added a dummy fragment in
-        if (position == mFragments.size() - 2 && evenNumberOfFragments) {
+        if (mFragments.size() > 2 && position == mFragments.size() - 1) {
             fragmentWidth = .5f;
-        } else if (position == 0 && evenNumberOfFragments) {
-            // Dummy fragment at start of pager set width to a fifth so pagers line up nicely
-            fragmentWidth = .2f;
-        } else {
-            fragmentWidth = .6f;
         }
 
         return fragmentWidth;

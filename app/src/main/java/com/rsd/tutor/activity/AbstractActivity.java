@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentManager;
 
 import com.rsd.tutor.fragment.headless.TaskFragment;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by Raukawa on 2/19/14.
  */
@@ -19,6 +21,10 @@ public abstract class AbstractActivity extends FragmentActivity implements Async
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    protected void initialiseViewInjection() {
+        ButterKnife.inject(this);
     }
 
     protected void initialiseTaskFragment(TaskFragment taskFragment) {

@@ -69,7 +69,10 @@ public class CoverFlowFragment extends Fragment {
     @OnClick(R.id.fragment_cover_flow_iv_book)
     public void handleClick(final View view) {
         if (mUserInteraction.isCurrentPosition(mPosition)) {
-            TransitionAnimationUtil.runOvershootAnimationOnClick(mFragmentCoverFlowContainer, mUserInteraction, mPosition);
+            //TransitionAnimationUtil.runOvershootAnimationOnClick(mFragmentCoverFlowContainer, mUserInteraction, mPosition);
+            int rotationValue = view.getRotationY() == 0 ? -180 : 0;
+            //view.animate().setDuration(5000).rotationY(rotationValue);
+            view.animate().setDuration(5000).rotationYBy(180);
         }
     }
 }

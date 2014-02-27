@@ -72,7 +72,6 @@ public class WorksheetAssignedActivity extends AbstractActivity implements Works
         if (!checkFirstTimeUser()) {
             fragments.add(new WorksheetPreviewFragment());
         } else {
-            fragments.add(new DummyFragment());
             // Get worksheets from DB
             for (int i = 0; i < 3; i++) {
                 fragments.add(new WorksheetPreviewFragment());
