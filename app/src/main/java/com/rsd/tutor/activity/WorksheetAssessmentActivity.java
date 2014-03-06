@@ -44,7 +44,7 @@ public class WorksheetAssessmentActivity extends FragmentActivity {
 
     private List<Fragment> initialiseFragments() {
         List<Fragment> fragments = new ArrayList<Fragment>();
-        fragments.add(new WorksheetPreviewFragment());
+        //fragments.add(new WorksheetPreviewFragment());
 
         return fragments;
     }

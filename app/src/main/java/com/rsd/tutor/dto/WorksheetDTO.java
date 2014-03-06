@@ -1,7 +1,7 @@
 package com.rsd.tutor.dto;
 
+import com.rsd.tutor.persistence.DifficultyLevel;
 import com.rsd.tutor.persistence.WorksheetStatus;
-import com.rsd.tutor.persistence.domain.Worksheet;
 
 import java.util.Date;
 import java.util.List;
@@ -11,14 +11,17 @@ import java.util.List;
  */
 public class WorksheetDto {
     private long id;
-    private int numberOfQuestions;
-    private WorksheetStatus status;
-    private Date duration;
+    private String worksheetId;
+    private String title;
+    private List<QuestionDto> questions;
+    private Date estimatedDurationToComplete;
+    private DifficultyLevel difficultyLevel;
     private Date assignedDate;
+    private WorksheetStatus status;
     private Date completedDate;
+    private Date duration;
     private Date assessedDate;
     private String assessor;
-    private List<QuestionDto> questions;
 
     public long getId() {
         return id;
@@ -28,28 +31,44 @@ public class WorksheetDto {
         this.id = id;
     }
 
-    public int getNumberOfQuestions() {
-        return numberOfQuestions;
+    public String getWorksheetId() {
+        return worksheetId;
     }
 
-    public void setNumberOfQuestions(int numberOfQuestions) {
-        this.numberOfQuestions = numberOfQuestions;
+    public void setWorksheetId(String worksheetId) {
+        this.worksheetId = worksheetId;
     }
 
-    public WorksheetStatus getStatus() {
-        return status;
+    public String getTitle() {
+        return title;
     }
 
-    public void setStatus(WorksheetStatus status) {
-        this.status = status;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public Date getDuration() {
-        return duration;
+    public List<QuestionDto> getQuestions() {
+        return questions;
     }
 
-    public void setDuration(Date duration) {
-        this.duration = duration;
+    public void setQuestions(List<QuestionDto> questions) {
+        this.questions = questions;
+    }
+
+    public Date getEstimatedDurationToComplete() {
+        return estimatedDurationToComplete;
+    }
+
+    public void setEstimatedDurationToComplete(Date estimatedDurationToComplete) {
+        this.estimatedDurationToComplete = estimatedDurationToComplete;
+    }
+
+    public DifficultyLevel getDifficultyLevel() {
+        return difficultyLevel;
+    }
+
+    public void setDifficultyLevel(DifficultyLevel difficultyLevel) {
+        this.difficultyLevel = difficultyLevel;
     }
 
     public Date getAssignedDate() {
@@ -60,12 +79,28 @@ public class WorksheetDto {
         this.assignedDate = assignedDate;
     }
 
+    public WorksheetStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(WorksheetStatus status) {
+        this.status = status;
+    }
+
     public Date getCompletedDate() {
         return completedDate;
     }
 
     public void setCompletedDate(Date completedDate) {
         this.completedDate = completedDate;
+    }
+
+    public Date getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Date duration) {
+        this.duration = duration;
     }
 
     public Date getAssessedDate() {
@@ -82,13 +117,5 @@ public class WorksheetDto {
 
     public void setAssessor(String assessor) {
         this.assessor = assessor;
-    }
-
-    public List<QuestionDto> getQuestions() {
-        return questions;
-    }
-
-    public void setQuestions(List<QuestionDto> questions) {
-        this.questions = questions;
     }
 }

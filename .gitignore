@@ -29,3 +29,5 @@
 .idea/libraries/javax_inject_1.xml
 .idea/libraries/volley_1_0.xml
 app/app.iml
+
+.idea/libraries/activeandroid_sources.xml

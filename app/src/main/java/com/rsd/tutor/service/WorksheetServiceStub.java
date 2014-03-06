@@ -1,13 +1,14 @@
 package com.rsd.tutor.service;
 
-import android.util.Log;
-
 import com.rsd.tutor.activity.WorksheetRequest;
 import com.rsd.tutor.dto.QuestionDto;
 import com.rsd.tutor.dto.WorksheetDto;
+import com.rsd.tutor.persistence.DifficultyLevel;
 import com.rsd.tutor.persistence.WorksheetStatus;
 import com.rsd.tutor.persistence.domain.Worksheet;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -86,20 +87,36 @@ public class WorksheetServiceStub implements WorksheetService {
     private List<WorksheetDto> createStubWorksheets() {
         List<WorksheetDto> dtos = new ArrayList<WorksheetDto>();
 
-        WorksheetDto dto = new WorksheetDto();
-        dto.setId(0);
-        dto.setAssessedDate(new Date());
-        dto.setAssessor("test assessor");
-        dto.setAssignedDate(new Date());
-        dto.setCompletedDate(new Date());
-        dto.setDuration(null);
-        dto.setNumberOfQuestions(20);
-        dto.setQuestions(createQuestions(20));
-        dto.setStatus(WorksheetStatus.ASSIGNED);
-
-        dtos.add(dto);
+        for (int i = 0; i < 3; i++) {
+            WorksheetDto dto = new WorksheetDto();
+            dto.setId(i);
+            dto.setWorksheetId("WSY1E-C");
+            dto.setTitle("Can you count the objects");
+            dto.setQuestions(createQuestions(20));
+            dto.setEstimatedDurationToComplete(calculateTime(20));
+            dto.setDifficultyLevel(DifficultyLevel.ENTRY);
+            dto.setAssignedDate(new Date());
+            dto.setStatus(WorksheetStatus.ASSIGNED);
+            dto.setCompletedDate(new Date());
+            dto.setAssessedDate(new Date());
+            dto.setAssessor("test assessor");
+            dtos.add(dto);
+        }
 
         return dtos;
+    }
+
+    private Date calculateTime(int minutes) {
+        SimpleDateFormat timeFormatter = new SimpleDateFormat("mm");
+
+        Date time = null;
+        try {
+            time = timeFormatter.parse(Integer.toString(minutes));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return time;
     }
 
     private List<QuestionDto> createQuestions(int numberOfQuestions) {

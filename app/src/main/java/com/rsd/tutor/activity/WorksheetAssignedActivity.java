@@ -48,15 +48,14 @@ public class WorksheetAssignedActivity extends AbstractActivity implements Works
 
         setContentView(R.layout.activity_worksheet_assigned);
 
-        getWorksheets();
         initialiseInjection();
+        getWorksheets();
         initialiseViewPager();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        mViewPager.setCurrentItem(1);
     }
 
     private void initialiseViewPager() {
@@ -70,11 +69,10 @@ public class WorksheetAssignedActivity extends AbstractActivity implements Works
         List<Fragment> fragments = new ArrayList<Fragment>();
 
         if (!checkFirstTimeUser()) {
-            fragments.add(new WorksheetPreviewFragment());
+            //fragments.add(new WorksheetPreviewFragment());
         } else {
-            // Get worksheets from DB
-            for (int i = 0; i < 3; i++) {
-                fragments.add(new WorksheetPreviewFragment());
+            for (Worksheet worksheet: mWorksheets) {
+                fragments.add(WorksheetPreviewFragment.newInstance(worksheet));
             }
 
             fragments.add(new DummyFragment());
@@ -94,7 +92,7 @@ public class WorksheetAssignedActivity extends AbstractActivity implements Works
     }
 
     private void getWorksheets() {
-        //mWorksheetService.getWorksheetsFromDb(this, WorksheetStatus.ASSIGNED);
+        mWorksheets = mWorksheetService.getWorksheetsFromDb(this, WorksheetStatus.ASSIGNED);
     }
 
     private boolean checkFirstTimeUser() {

@@ -17,5 +17,11 @@
     <string name="title_book_assessments">Assessment</string>
     <string name="toast_worksheets_fetched">Worsheets updated</string>
     <string name="img_cover_flow_book">Homework Book</string>
+    <string name="fragment_preview_label_questions">Number of questions:</string>
+    <string name="label_worksheet_duration">Estimated duration:</string>
+    <string name="label_difficulty_level">Difficulty level:</string>
+    <string name="label_assigned_date">Assigned date:</string>
+    <string name="label_status">Status:</string>
+    <string name="label_time_taken">Time taken:</string>
 
 </resources>

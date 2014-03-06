@@ -81,7 +81,7 @@
         <com.rsd.tutor.custom.RobotoLightTextView
             android:id="@+id/fragment_preview_worksheet_duration_label"
             style="@style/preview_label"
-            android:text="Estimated duration:"
+            android:text="Estimated estimatedDurationToComplete:"
             android:layout_below="@id/fragment_preview_worksheet_number_of_questions_label" />
 
         <TextView
