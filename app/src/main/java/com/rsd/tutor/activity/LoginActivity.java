@@ -1,5 +1,6 @@
 package com.rsd.tutor.activity;
 
+import android.animation.Animator;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -19,6 +20,9 @@ import com.rsd.tutor.fragment.headless.TaskFragment;
 import com.rsd.tutor.util.TransitionAnimationUtil;
 import com.rsd.tutor.util.TypeValueUtil;
 import com.rsd.tutor.util.TypefaceUtil;
+import com.rsd.tutor.widget.ShimmerSpanBuilder;
+import com.rsd.tutor.widget.shimmer.Shimmer;
+import com.rsd.tutor.widget.shimmer.ShimmerTextView;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -30,6 +34,7 @@ public class LoginActivity extends AbstractActivity implements TextWatcherCallBa
     private float mInactiveAlphaValue;
     private boolean mInvalidLogin = false;
     private boolean mInputAnimated = false;
+    private Animator mShimmerAnimator;
 
     @InjectView(R.id.activity_login_container)
     RelativeLayout mContainer;
@@ -47,7 +52,7 @@ public class LoginActivity extends AbstractActivity implements TextWatcherCallBa
     RelativeLayout mContainerLoginAuthentication;
 
     @InjectView(R.id.activity_login_header_title)
-    TextView mTitleLogin;
+    ShimmerTextView mTitleLogin;
 
     @InjectView(R.id.activity_login_et_user_name)
     DeleteEditText mInputUserName;
@@ -67,6 +72,7 @@ public class LoginActivity extends AbstractActivity implements TextWatcherCallBa
         initialiseViewProperties();
         initialiseInputs();
         initialiseKeyboardListener();
+        initialiseShimmer();
     }
 
     @Override
@@ -83,7 +89,15 @@ public class LoginActivity extends AbstractActivity implements TextWatcherCallBa
         boolean enabled = (mInputUserName.length() > 0 && mInputPassword.length() > 0) ? true : false;
         float alphaLevel = enabled ? 1f : mInactiveAlphaValue;
 
-        mButtonLogin.animate().alpha(alphaLevel);
+        mButtonLogin.animate().alpha(alphaLevel).withEndAction(
+            new Runnable() {
+                @Override
+                public void run() {
+                    new ShimmerSpanBuilder(mButtonLogin).runShimmerAnimation();
+                }
+            }
+        );
+
         mButtonLogin.setEnabled(enabled);
     }
 
@@ -140,6 +154,34 @@ public class LoginActivity extends AbstractActivity implements TextWatcherCallBa
                 animateViewAboveKeyboard(animationHeight);
             }
         });
+    }
+
+    private void initialiseShimmer() {
+        if (mShimmerAnimator != null) {
+            mShimmerAnimator.cancel();
+        } else {
+            Shimmer.animate(mTitleLogin, new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationStart(Animator animator) {
+                    mShimmerAnimator = animator;
+                }
+
+                @Override
+                public void onAnimationEnd(Animator animator) {
+
+                }
+
+                @Override
+                public void onAnimationCancel(Animator animator) {
+
+                }
+
+                @Override
+                public void onAnimationRepeat(Animator animator) {
+
+                }
+            });
+        }
     }
 
     private void animateViewAboveKeyboard(int heightDelta) {

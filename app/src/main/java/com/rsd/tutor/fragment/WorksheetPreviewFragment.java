@@ -98,6 +98,6 @@ public class WorksheetPreviewFragment extends Fragment {
         mDifficulty.setText(mWorksheet.difficultyLevel.getDisplayName());
         mAssigned.setText(DateUtil.formatStandardDate(mWorksheet.assignedDate));
         mStatus.setText(mWorksheet.status.getDisplayName());
-        mTimeTaken.setText(DateUtil.formatTime(mWorksheet.d));
+        mTimeTaken.setText(DateUtil.formatTime(mWorksheet.duration));
     }
 }

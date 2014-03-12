@@ -17,7 +17,7 @@ import java.util.Set;
 /**
  * Created by Raukawa on 2/22/14.
  */
-public class SpanBuilder {
+public class FireworksSpanBuilder {
 
     private SpannableString mSpannableString;
     private AccelerateDecelerateInterpolator mSmoothInterpolator;
@@ -25,7 +25,7 @@ public class SpanBuilder {
     private final Activity mTargetActivity;
     private Set<Object> mSpans = new HashSet<Object>();
 
-    public SpanBuilder(Activity targetActivity) {
+    public FireworksSpanBuilder(Activity targetActivity) {
         mTargetActivity = targetActivity;
         mTextToTransform = targetActivity.getTitle();
         mSmoothInterpolator = new AccelerateDecelerateInterpolator();

@@ -37,7 +37,8 @@
 
         </RelativeLayout>
 
-        <com.rsd.tutor.custom.RobotoThinTextView
+        <!--<com.rsd.tutor.custom.RobotoThinTextView-->
+        <com.rsd.tutor.widget.shimmer.ShimmerTextView
             style="@style/margins_width_default"
             android:id="@+id/activity_login_header_title"
             android:text="@string/app_name"

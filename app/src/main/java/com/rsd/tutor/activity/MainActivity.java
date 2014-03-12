@@ -16,7 +16,7 @@ import com.rsd.tutor.fragment.headless.TaskFragment;
 import com.rsd.tutor.fragment.transformer.ZoomPageTransformer;
 import com.rsd.tutor.util.DisplayUtil;
 import com.rsd.tutor.util.LogUtil;
-import com.rsd.tutor.widget.SpanBuilder;
+import com.rsd.tutor.widget.FireworksSpanBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,9 +44,7 @@ public class MainActivity extends AbstractActivity implements UserInteraction{
 
         setContentView(R.layout.activity_main);
 
-        LogUtil.logTime(TAG, "before injection");
         initialiseInjection();
-        LogUtil.logTime(TAG, "after injection");
         initialiseAsyncTask();
         initialiseViewPager();
     }
@@ -109,7 +107,7 @@ public class MainActivity extends AbstractActivity implements UserInteraction{
     }
 
     private void animateActionBarTitle() {
-        new SpanBuilder(this).runFireworksAnimation();
+        new FireworksSpanBuilder(this).runFireworksAnimation();
     }
 
     @Override
