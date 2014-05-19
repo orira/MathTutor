@@ -8,8 +8,13 @@ import java.util.Date;
  */
 public class DateUtil {
 
+    private static SimpleDateFormat durationFormatter = new SimpleDateFormat("mm");
     private static SimpleDateFormat timeFormatter = new SimpleDateFormat("hh:mm");
     private static SimpleDateFormat dateFormatter = new SimpleDateFormat("dd MMMM yyyy");
+
+    public static String formatWorksheetDuration(Date time) {
+        return durationFormatter.format(time);
+    }
 
     public static String formatTime(Date time) {
         return timeFormatter.format(time);

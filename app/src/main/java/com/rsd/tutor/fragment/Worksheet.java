@@ -35,7 +35,7 @@ public class Worksheet extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_worksheet, null);
+        View view = inflater.inflate(R.layout.fragment_worksheet, container, false);
         ButterKnife.inject(getActivity());
 
         return view;

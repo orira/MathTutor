@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.rsd.tutor.R;
 import com.rsd.tutor.custom.RobotoBoldTextView;
 import com.rsd.tutor.custom.RobotoThinTextView;
@@ -78,7 +79,7 @@ public class WorksheetPreviewFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_worksheet_preview, null);
+        View view = inflater.inflate(R.layout.fragment_worksheet_preview, container, false);
         ButterKnife.inject(this, view);
 
         return view;
@@ -88,16 +89,19 @@ public class WorksheetPreviewFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
+        Gson gson = new Gson();
+        String serialisedWorksheet = gson.toJson(mWorksheet);
+
         Question firstQuestion = mWorksheet.questions().get(0);
         mQuestion.setText(firstQuestion.detail);
         mWorksheetId.setText(mWorksheet.worksheetId);
         // TODO: Align title and category
         mLessonCategory.setText(mWorksheet.title);
         mNumberOfQuestions.setText(Integer.toString(mWorksheet.questions().size()));
-        mDuration.setText(DateUtil.formatTime(mWorksheet.duration));
+        mDuration.setText(DateUtil.formatWorksheetDuration(mWorksheet.estimatedDurationToComplete) + getString(R.string.minutes));
         mDifficulty.setText(mWorksheet.difficultyLevel.getDisplayName());
         mAssigned.setText(DateUtil.formatStandardDate(mWorksheet.assignedDate));
         mStatus.setText(mWorksheet.status.getDisplayName());
-        mTimeTaken.setText(DateUtil.formatTime(mWorksheet.duration));
+        //mTimeTaken.setText(DateUtil.formatTime(mWorksheet.duration));
     }
 }

@@ -23,5 +23,6 @@
     <string name="label_assigned_date">Assigned date:</string>
     <string name="label_status">Status:</string>
     <string name="label_time_taken">Time taken:</string>
+    <string name="minutes">&#160;minutes</string>
 
 </resources>

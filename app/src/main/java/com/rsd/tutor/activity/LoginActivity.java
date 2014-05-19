@@ -89,14 +89,15 @@ public class LoginActivity extends AbstractActivity implements TextWatcherCallBa
         boolean enabled = (mInputUserName.length() > 0 && mInputPassword.length() > 0) ? true : false;
         float alphaLevel = enabled ? 1f : mInactiveAlphaValue;
 
-        mButtonLogin.animate().alpha(alphaLevel).withEndAction(
+        mButtonLogin.animate().alpha(alphaLevel);
+        /*mButtonLogin.animate().alpha(alphaLevel).withEndAction(
             new Runnable() {
                 @Override
                 public void run() {
                     new ShimmerSpanBuilder(mButtonLogin).runShimmerAnimation();
                 }
             }
-        );
+        );*/
 
         mButtonLogin.setEnabled(enabled);
     }

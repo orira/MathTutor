@@ -45,7 +45,11 @@ public class WorksheetServiceStub implements WorksheetService {
 
         List<Worksheet> worksheets = Worksheet.getAll();
 
-        // Investigate if wrapped in a transaction is more performant
+        String foo = "foo";
+
+
+
+        // TODO: Investigate if wrapped in a transaction is more performant
         /*for (WorksheetDto dto : dtos) {
             ActiveAndroid.beginTransaction();
             try {
@@ -93,7 +97,7 @@ public class WorksheetServiceStub implements WorksheetService {
             dto.setWorksheetId("WSY1E-C");
             dto.setTitle("Can you count the objects");
             dto.setQuestions(createQuestions(20));
-            dto.setEstimatedDurationToComplete(calculateTime(20));
+            dto.setEstimatedDurationToComplete(returnTimeInMinutes(20));
             dto.setDifficultyLevel(DifficultyLevel.ENTRY);
             dto.setAssignedDate(new Date());
             dto.setStatus(WorksheetStatus.ASSIGNED);
@@ -106,7 +110,7 @@ public class WorksheetServiceStub implements WorksheetService {
         return dtos;
     }
 
-    private Date calculateTime(int minutes) {
+    private Date returnTimeInMinutes(int minutes) {
         SimpleDateFormat timeFormatter = new SimpleDateFormat("mm");
 
         Date time = null;
@@ -124,7 +128,7 @@ public class WorksheetServiceStub implements WorksheetService {
 
         QuestionDto dto = new QuestionDto();
         for (int i = 0; i < numberOfQuestions; i++) {
-            dto.setQuestion("how many boonjargs are there");
+            dto.setQuestion("how many tables are there");
             dto.setAnswer(5);
             questions.add(dto);
         }
