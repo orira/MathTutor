@@ -34,3 +34,13 @@ app/app.iml
 .idea/copyright/profiles_settings.xml
 app/app.iml
 *.iml
+
+MathTutor.iml
+
+app/app.iml
+
+.idea/libraries/gson_2_2_4.xml
+
+.idea/libraries/support_v4_19_1_0.xml
+
+app/src/main/java/com/rsd/tutor/custom/CapitalisedQuestionTextView.java
